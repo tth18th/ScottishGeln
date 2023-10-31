@@ -10,28 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ScottishGeln
 {
     /// <summary>
-    /// Interaction logic for Assets.xaml
+    /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class Assets : Window
+    public partial class Page1 : Page
     {
-        public Assets()
+        public Page1()
         {
             InitializeComponent();
-        }
-
-        private void AddToDatabase_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ShowDatabase_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

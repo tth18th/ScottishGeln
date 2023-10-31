@@ -5,9 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScottishGeln"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="650" Width="920">
     <Grid>
-        <Label Content="ScottishGeln" HorizontalAlignment="Left" Margin="197,28,0,0" VerticalAlignment="Top" Height="107" Width="341" FontSize="48"/>
+        <Label Content="ScottishGeln" HorizontalAlignment="Left" Margin="256,81,0,0" VerticalAlignment="Top" Height="107" Width="341" FontSize="48"/>
+        <Button Content="Add Assets" HorizontalAlignment="Left" Margin="147,347,0,0" VerticalAlignment="Top" FontSize="24" Click="Button_Click"/>
+        <Button Content="Employee" HorizontalAlignment="Left" Margin="365,347,0,0" VerticalAlignment="Top" FontSize="24" Click="Button_Click_1"/>
+        <Button Content="Department" HorizontalAlignment="Left" Margin="540,347,0,0" VerticalAlignment="Top" FontSize="24" Click="Button_Click_2"/>
 
     </Grid>
 </Window>

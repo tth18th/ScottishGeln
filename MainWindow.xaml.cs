@@ -23,6 +23,31 @@ namespace ScottishGeln
         public MainWindow()
         {
             InitializeComponent();
+            
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Assets a = new Assets();
+            a.Show();
+            this.Close();
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+            Employee ea = new Employee();    
+            ea.Show();
+            this.Close();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Department da = new Department();
+            da.Show();
+            this.Close();
         }
     }
 }

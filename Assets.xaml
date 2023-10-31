@@ -7,6 +7,39 @@
         mc:Ignorable="d"
         Title="Assets" Height="450" Width="800">
     <Grid>
-        
+
+        <StackPanel Margin="10">
+            <TextBlock Text="Name:"/>
+            <TextBox x:Name="nameTextBox"/>
+
+            <TextBlock Text="Department:"/>
+            <ComboBox x:Name="departmentComboBox" SelectedIndex="0" >
+                <!-- Add department items -->
+                <ComboBoxItem Content="HR"/>
+                <ComboBoxItem Content="IT"/>
+                <ComboBoxItem Content="Finance"/>
+                <ComboBoxItem Content="Sale"/>
+                <ComboBoxItem Content="Operations"/>
+
+            </ComboBox>
+
+            <TextBlock Text="Description:"/>
+            <TextBox x:Name="descriptionTextBox" Height="100" TextWrapping="Wrap"/>
+
+            <Button Content="Add to Database" Click="AddToDatabase_Click" Width="241"/>
+            <Button Content="Show Data" Click="ShowDatabase_Click" Width="239"/>
+
+            <ListView Name="dataListView">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding Column1}" />
+                        <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Column2}" />
+                        <GridViewColumn Header="Dep" Width="120" DisplayMemberBinding="{Binding Column3}" />
+                        <GridViewColumn Header="Des" Width="120" DisplayMemberBinding="{Binding Column4}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+
     </Grid>
 </Window>
