@@ -5,12 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScottishGeln"
         mc:Ignorable="d"
-        Title="Assets" Height="450" Width="800">
+        Title="Assets" Height="1020" Width="750">
     <Grid>
 
         <StackPanel Margin="10">
             <TextBlock Text="Name:"/>
             <TextBox x:Name="nameTextBox"/>
+            <TextBlock Text="Model:"/>
+            <TextBox x:Name="ModelTextBox"/>
+            <TextBlock Text="Manufactre:"/>
+            <TextBox x:Name="ManTextBox"/>
+            <TextBlock Text="IpAddress:"/>
+            <TextBox x:Name="IpTextBox"/>
+            <Calendar  x:Name="Callender" HorizontalAlignment="Left" VerticalAlignment="Top" />
 
             <TextBlock Text="Department:"/>
             <ComboBox x:Name="departmentComboBox" SelectedIndex="0" >
@@ -23,11 +30,12 @@
 
             </ComboBox>
 
-            <TextBlock Text="Description:"/>
-            <TextBox x:Name="descriptionTextBox" Height="100" TextWrapping="Wrap"/>
+            <TextBlock Text="Description or Notes:"/>
+            <TextBox x:Name="descriptionTextBox" Height="46" TextWrapping="Wrap"/>
 
-            <Button Content="Add to Database" Click="AddToDatabase_Click" Width="241"/>
-            <Button Content="Show Data" Click="ShowDatabase_Click" Width="239"/>
+            <Button Content="Add to Database" Click="AddToDatabase_Click" Width="133" HorizontalAlignment="Center" Height="25"/>
+            <Button Content="Show Data" Click="ShowDatabase_Click" Width="133" HorizontalAlignment="Center" Height="25"/>
+            <Button  Content="Get System Info" Click="ShowDatabase_Click" Width="133" Height="25"/>
 
             <ListView Name="dataListView">
                 <ListView.View>

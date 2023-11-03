@@ -8,9 +8,9 @@
         Title="MainWindow" Height="650" Width="920">
     <Grid>
         <Label Content="ScottishGeln" HorizontalAlignment="Left" Margin="256,81,0,0" VerticalAlignment="Top" Height="107" Width="341" FontSize="48"/>
-        <Button Content="Add Assets" HorizontalAlignment="Left" Margin="147,347,0,0" VerticalAlignment="Top" FontSize="24" Click="Button_Click"/>
-        <Button Content="Employee" HorizontalAlignment="Left" Margin="365,347,0,0" VerticalAlignment="Top" FontSize="24" Click="Button_Click_1"/>
-        <Button Content="Department" HorizontalAlignment="Left" Margin="540,347,0,0" VerticalAlignment="Top" FontSize="24" Click="Button_Click_2"/>
+        <Button Content="Add Assets" HorizontalAlignment="Left" Margin="85,347,0,0" VerticalAlignment="Top" FontSize="24" Click="Button_Click" Height="70" Width="188"/>
+        <Button Content="Employee" HorizontalAlignment="Left" Margin="365,347,0,0" VerticalAlignment="Top" FontSize="24" Click="Button_Click_1" Height="70" Width="168"/>
+        <Button Content="Department" HorizontalAlignment="Left" Margin="620,347,0,0" VerticalAlignment="Top" FontSize="24" Click="Button_Click_2" Height="70" Width="195"/>
 
     </Grid>
 </Window>
