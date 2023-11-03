@@ -29,6 +29,8 @@ namespace ScottishGeln
 
         private void AddToDatabase_Click(object sender, RoutedEventArgs e)
         {
+
+
             string connectionString = "server=lochnagar.abertay.ac.uk;username=sql2100258;password=reduces dump risk baths;database=sql2100258;";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -37,15 +39,27 @@ namespace ScottishGeln
                     connection.Open();
 
                     string name = nameTextBox.Text;
-                    string department = (departmentComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
-                    string description = descriptionTextBox.Text;
+                    string Model = ModelTextBox.Text;
+                    string Manufacture = ManTextBox.Text;
+                    string Systeminfo = SysTextBox.Text;
+                    string IpAddress = IpTextBox.Text;
+                    string PDate = DateTextBox.Text;
+                    string Department = (departmentComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
+                    string Note = descriptionTextBox.Text;
 
-                    string insertQuery = "INSERT INTO test (Id, Name, Department, Description) VALUES (FLOOR(10000 + RAND() * 90000),@Name, @Department, @Description)";
+                    Calendartxt.SelectedDate = DateTime.Now.AddDays(1);
+                    string insertQuery = "INSERT INTO Assets (ID,Name,Model,Manufacture,Systeminfo,IpAddress,PDate,Department,Note) VALUES (FLOOR(10000 + RAND() * 90000),@Name, @Model, @Manufacture,@Systeminfo,@IpAddress,@PDate,@Department,@Note)";
                     using (MySqlCommand cmd = new MySqlCommand(insertQuery, connection))
                     {
                         cmd.Parameters.AddWithValue("@Name", name);
-                        cmd.Parameters.AddWithValue("@Department", department);
-                        cmd.Parameters.AddWithValue("@Description", description);
+                        cmd.Parameters.AddWithValue("@Model", Model);
+                        cmd.Parameters.AddWithValue("@Manufacture", Manufacture);
+                        cmd.Parameters.AddWithValue("@Systeminfo", Systeminfo);
+                        cmd.Parameters.AddWithValue("@IpAddress", IpAddress);
+                        cmd.Parameters.AddWithValue("@PDate", PDate);
+                        cmd.Parameters.AddWithValue("@Department", Department);
+                        cmd.Parameters.AddWithValue("@Note", Note);
+                     
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
@@ -69,6 +83,11 @@ namespace ScottishGeln
             public string Column2 { get; set; }
             public string Column3 { get; set; }
             public string Column4 { get; set; }
+            public string Column5 { get; set; }
+            public string Column6 { get; set; }
+            public string Column7 { get; set; }
+            public string Column8 { get; set; }
+            public string Column9 { get; set; }
         }
 
         private void ShowDatabase_Click(object sender, RoutedEventArgs e)
@@ -80,7 +99,7 @@ namespace ScottishGeln
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT Id, Name, Department, Description FROM test";
+                string query = "SELECT ID,Name,Model,Manufacture,Systeminfo,IpAddress,PDate,Department,Note FROM Assets";
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
                     using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -91,12 +110,18 @@ namespace ScottishGeln
                             {
                                 Column1 = reader["Id"].ToString(),
                                 Column2 = reader["Name"].ToString(),
-                                Column3 = reader["Department"].ToString(),
-                                Column4 = reader["Description"].ToString()
+                                Column3 = reader["Model"].ToString(),
+                                Column4 = reader["Manufacture"].ToString(),
+                                Column5 = reader["Systeminfo"].ToString(),
+                                Column6 = reader["IpAddress"].ToString(),
+                                Column7 = reader["PDate"].ToString(),
+                                Column8 = reader["Department"].ToString(),
+                                Column9 = reader["Note"].ToString()
+
 
                             };
                             data.Add(item);
-                        }
+                        } 
                     }
                 }
             }
