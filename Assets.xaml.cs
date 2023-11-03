@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -100,6 +102,52 @@ namespace ScottishGeln
             }
 
             dataListView.ItemsSource = data;
+        }
+
+        private void GetInfo_Click(object sender, RoutedEventArgs e)
+        {
+            // Get system information
+            string systemName = Environment.MachineName;
+            string systemModel = GetSystemModel();
+            string systemManufacturer = Environment.OSVersion.Version.ToString();
+            string systemType = Environment.Is64BitOperatingSystem ? "64-bit" : "32-bit";
+            string ipAddress = GetLocalIPAddress();
+
+            // Fill the textboxes with the system information
+            nameTextBox.Text = systemName;
+            ModelTextBox.Text = systemModel;
+            ManTextBox.Text = systemManufacturer;
+            SysTextBox.Text = systemType;
+            IpTextBox.Text = ipAddress;
+        }
+        private string GetSystemModel()
+        {
+            return Environment.GetEnvironmentVariable("COMPUTERNAME");
+        }
+
+        private string GetSystemManufacturer()
+        {
+            return Environment.GetEnvironmentVariable("USERDOMAIN");
+        }
+
+        private string GetLocalIPAddress()
+        {
+            string localIP = "";
+            foreach (NetworkInterface netInterface in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if (netInterface.OperationalStatus == OperationalStatus.Up && netInterface.NetworkInterfaceType != NetworkInterfaceType.Loopback)
+                {
+                    foreach (UnicastIPAddressInformation address in netInterface.GetIPProperties().UnicastAddresses)
+                    {
+                        if (address.Address.AddressFamily == AddressFamily.InterNetwork)
+                        {
+                            localIP = address.Address.ToString();
+                            break;
+                        }
+                    }
+                }
+            }
+            return localIP;
         }
     }
 }
