@@ -5,50 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScottishGeln"
         mc:Ignorable="d"
-        Title="Assets" Height="1020" Width="750">
-    <Grid>
+        Title="Assets" Height="1020" Width="950">
+    <Grid Margin="0,0,0,-6">
 
-        <StackPanel Margin="10">
-            <TextBlock Text="Name:"/>
-            <TextBox x:Name="nameTextBox"/>
-            <TextBlock Text="Model:"/>
-            <TextBox x:Name="ModelTextBox"/>
-            <TextBlock Text="Manufactre:"/>
-            <TextBox x:Name="ManTextBox"/>
-            <TextBlock Text="System:"/>
-            <TextBox x:Name="SysTextBox"/>
-            <TextBlock Text="IpAddress:"/>
-            <TextBox x:Name="IpTextBox"/>
-            <Calendar  x:Name="Callender" HorizontalAlignment="Left" VerticalAlignment="Top" />
-
-            <TextBlock Text="Department:"/>
-            <ComboBox x:Name="departmentComboBox" SelectedIndex="0" >
+        <StackPanel Margin="0,34,0,36" HorizontalAlignment="Center" Width="890">
+            <TextBlock Text="Name:" FontSize="16"/>
+            <TextBox x:Name="nameTextBox" Height="25"/>
+            <TextBlock Text="Model: " FontSize="16"/>
+            <TextBox x:Name="ModelTextBox"  Height="25"/>
+            <TextBlock Text="Manufactre:" FontSize="16"/>
+            <TextBox x:Name="ManTextBox"  Height="25"/>
+            <TextBlock Text="System:" FontSize="16"/>
+            <TextBox x:Name="SysTextBox"  Height="25"/>
+            <TextBlock Text="Ip Address:" FontSize="16"/>
+            <TextBox x:Name="IpTextBox" Height="25"/>
+            <Calendar  x:Name="Calendartxt" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Label x:Name="SelectDate" FontSize="16" Height="32" Panel.ZIndex="-3">Select Date</Label>
+            <TextBox x:Name="DateTextBox" Text="{Binding ElementName=Calendartxt, Path=SelectedDate, StringFormat=d, UpdateSourceTrigger=PropertyChanged}"  Height="25"/>
+            <TextBlock Text="Department:" FontSize="16"/>
+            <ComboBox x:Name="departmentComboBox" SelectedIndex="0" FontSize="16" Height="25">
                 <!-- Add department items -->
                 <ComboBoxItem Content="HR"/>
                 <ComboBoxItem Content="IT"/>
                 <ComboBoxItem Content="Finance"/>
                 <ComboBoxItem Content="Sale"/>
                 <ComboBoxItem Content="Operations"/>
-
             </ComboBox>
 
-            <TextBlock Text="Description or Notes:"/>
+            <TextBlock Text="Description or Notes:" FontSize="16"/>
             <TextBox x:Name="descriptionTextBox" Height="46" TextWrapping="Wrap"/>
 
-            <Button Content="Add to Database" Click="AddToDatabase_Click" Width="133" HorizontalAlignment="Center" Height="25"/>
-            <Button Content="Show Data" Click="ShowDatabase_Click" Width="133" HorizontalAlignment="Center" Height="25"/>
-            <Button  Content="Get System Info" Click="GetInfo_Click" Width="133" Height="25"/>
+            <Button Content="Add to Database" FontSize="16" Click="AddToDatabase_Click" Width="140" HorizontalAlignment="Center" Height="29"/>
+            <Button Content="Show Data" FontSize="16" Click="ShowDatabase_Click" Width="140" HorizontalAlignment="Center" Height="29"/>
+            <Button  Content="Get System Info" FontSize="16" Click="GetInfo_Click" Width="140" Height="29"  HorizontalAlignment="Center"/>
 
-            <ListView Name="dataListView">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding Column1}" />
-                        <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Column2}" />
-                        <GridViewColumn Header="Dep" Width="120" DisplayMemberBinding="{Binding Column3}" />
-                        <GridViewColumn Header="Des" Width="120" DisplayMemberBinding="{Binding Column4}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" Width="866">
+
+                <ListView Name="dataListView" FontSize="18">
+                    <ListView.View>
+                        <GridView >
+                            <GridViewColumn Header="ID" Width="80" DisplayMemberBinding="{Binding Column1}" />
+                            <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding Column2}" />
+                            <GridViewColumn Header="Model" Width="100" DisplayMemberBinding="{Binding Column3}" />
+                            <GridViewColumn Header="Manufactre" Width="100" DisplayMemberBinding="{Binding Column4}" />
+                            <GridViewColumn Header="System" Width="100" DisplayMemberBinding="{Binding Column5}" />
+                            <GridViewColumn Header="Ip Address" Width="120" DisplayMemberBinding="{Binding Column6}" />
+                            <GridViewColumn Header="Date" Width="100" DisplayMemberBinding="{Binding Column7}" />
+                            <GridViewColumn Header="Department" Width="80" DisplayMemberBinding="{Binding Column8}" />
+                            <GridViewColumn Header="Note" Width="180" DisplayMemberBinding="{Binding Column9}" />
+                            </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
+
         </StackPanel>
 
     </Grid>
