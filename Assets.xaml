@@ -22,8 +22,8 @@
             <TextBlock Text="Ip Address:" FontSize="16"/>
             <TextBox x:Name="IpTextBox" Height="25"/>
             <Calendar  x:Name="Calendartxt" HorizontalAlignment="Left" VerticalAlignment="Top" Height="170" Width="800" FontSize="16" />
-            <Label x:Name="SelectDate" FontSize="16" Height="32" Panel.ZIndex="-3">Select Date</Label>
-            <TextBox x:Name="DateTextBox" Text="{Binding ElementName=Calendartxt, Path=SelectedDate, StringFormat=d, UpdateSourceTrigger=PropertyChanged}"  Height="25"/>
+            <Label x:Name="SelectDate" FontSize="16" Height="32" Panel.ZIndex="-3" Content="Select Date"/>
+            <TextBox x:Name="DateTextBox" Text="{Binding SelectedDate, ElementName=Calendartxt, StringFormat=d, UpdateSourceTrigger=PropertyChanged}"  Height="25"/>
             <TextBlock Text="Department:" FontSize="16"/>
             <ComboBox x:Name="departmentComboBox" SelectedIndex="0" FontSize="16" Height="25">
                 <!-- Add department items -->
@@ -37,35 +37,35 @@
             <TextBlock Text="Description or Notes:" FontSize="16"/>
             <TextBox x:Name="descriptionTextBox" Height="46" TextWrapping="Wrap"/>
             <Grid Width="561" Height="142" >
-                <Button Content="Add to Database" FontSize="16" Click="AddToDatabase_Click" Width="140" HorizontalAlignment="Left" Height="29" Margin="0,18,0,95"/>
-                <Button Content="Show Assets" FontSize="16" Click="ShowDatabase_Click" Width="140" HorizontalAlignment="Center" Height="29" Margin="0,18,0,95"/>
-                <Button Content="Update Assets" FontSize="16" Click="UpdateDatabase_Click" Width="140" HorizontalAlignment="Left" Height="29" Margin="0,80,0,33"/>
-                <Button Content="Delete Assets" FontSize="16" Click="DeleteDatabase_Click" Width="140" HorizontalAlignment="Left" Height="29" Margin="421,18,0,95" RenderTransformOrigin="0.489,0.899"/>
-                <Button  Content="Get System Info" FontSize="16" Click="GetInfo_Click" Width="140" Height="29"  HorizontalAlignment="Center" Margin="0,80,0,33"/>
-                <Button  Content="Clear" FontSize="16" Click="GetClear_Click" Width="140" Height="29"  HorizontalAlignment="Left" Margin="421,80,0,33"/>
+                <Button Content="Add to Database" FontSize="16" Click="AddToDatabase_Click" Width="140" HorizontalAlignment="Left" Margin="0,18,0,71"/>
+                <Button Content="Show Assets" FontSize="16" Click="ShowDatabase_Click" Width="140" HorizontalAlignment="Center" Margin="0,18,0,71"/>
+                <Button Content="Update Assets" FontSize="16" Click="UpdateDatabase_Click" Width="140" HorizontalAlignment="Left" Margin="0,80,0,10"/>
+                <Button Content="Delete Assets" FontSize="16" Click="DeleteDatabase_Click" Width="140" HorizontalAlignment="Left" Margin="421,18,0,71" RenderTransformOrigin="0.489,0.899"/>
+                <Button  Content="Get System Info" FontSize="16" Click="GetInfo_Click" Width="140"  HorizontalAlignment="Center" Margin="0,80,0,10"/>
+                <Button  Content="Clear" FontSize="16" Click="GetClear_Click" Width="140"  HorizontalAlignment="Left" Margin="421,80,0,10"/>
 
-            </Grid >
-    <Grid Height="177" >
-    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" Width="866" Cursor="ScrollAll" >
+            </Grid>
+            <Grid Height="177" >
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" Width="866" Cursor="ScrollAll" >
 
-                <ListView  Name="dataListView" FontSize="18">
-                    <ListView.View>
-                        <GridView >
-                            <GridViewColumn Header="ID" Width="80" DisplayMemberBinding="{Binding Column1}" />
-                            <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding Column2}" />
-                            <GridViewColumn Header="Model" Width="100" DisplayMemberBinding="{Binding Column3}" />
-                            <GridViewColumn Header="Manufactre" Width="100" DisplayMemberBinding="{Binding Column4}" />
-                            <GridViewColumn Header="System" Width="100" DisplayMemberBinding="{Binding Column5}" />
-                            <GridViewColumn Header="Ip Address" Width="120" DisplayMemberBinding="{Binding Column6}" />
-                            <GridViewColumn Header="Date" Width="100" DisplayMemberBinding="{Binding Column7}" />
-                            <GridViewColumn Header="Department" Width="80" DisplayMemberBinding="{Binding Column8}" />
-                            <GridViewColumn Header="Note" Width="180" DisplayMemberBinding="{Binding Column9}" />
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-            </ScrollViewer>
-    </Grid >
-    </StackPanel>
+                    <ListView  x:Name="dataListView" FontSize="18" Width="866">
+                        <ListView.View>
+                            <GridView >
+                                <GridViewColumn Header="ID" Width="80" DisplayMemberBinding="{Binding Column1}" />
+                                <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding Column2}" />
+                                <GridViewColumn Header="Model" Width="100" DisplayMemberBinding="{Binding Column3}" />
+                                <GridViewColumn Header="Manufactre" Width="100" DisplayMemberBinding="{Binding Column4}" />
+                                <GridViewColumn Header="System" Width="100" DisplayMemberBinding="{Binding Column5}" />
+                                <GridViewColumn Header="Ip Address" Width="120" DisplayMemberBinding="{Binding Column6}" />
+                                <GridViewColumn Header="Date" Width="100" DisplayMemberBinding="{Binding Column7}" />
+                                <GridViewColumn Header="Department" Width="80" DisplayMemberBinding="{Binding Column8}" />
+                                <GridViewColumn Header="Note" Width="180" DisplayMemberBinding="{Binding Column9}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </Grid>
+        </StackPanel>
 
     </Grid>
 </Window>

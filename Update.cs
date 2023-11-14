@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using MySql.Data.MySqlClient;
 
 
 namespace ScottishGeln
 {
-    class Update
+   class Update
     {
         private string connectionString;
 
-        public void DatabaseManager()
+        public  Update()
         {
-            string connectionString = "server=lochnagar.abertay.ac.uk;username=sql2100258;password=reduces dump risk baths;database=sql2100258;";
+             connectionString = "server=lochnagar.abertay.ac.uk;username=sql2100258;password=reduces dump risk baths;database=sql2100258;";
 
         }
 
@@ -35,7 +36,7 @@ namespace ScottishGeln
                         cmd.Parameters.AddWithValue("@Manufacture", asset.Manufacture);
                         cmd.Parameters.AddWithValue("@Systeminfo", asset.SystemInfo);
                         cmd.Parameters.AddWithValue("@IpAddress", asset.IpAddress);
-                        cmd.Parameters.AddWithValue("@PDate", asset.PurchaseDate);
+                        cmd.Parameters.AddWithValue("@PDate", asset.PDate);
                         cmd.Parameters.AddWithValue("@Department", asset.Department);
                         cmd.Parameters.AddWithValue("@Note", asset.Note);
                         cmd.Parameters.AddWithValue("@ID", asset.ID);
@@ -44,18 +45,19 @@ namespace ScottishGeln
 
                         if (rowsAffected > 0)
                         {
-                            Console.WriteLine("Data updated in the database.");
+                            MessageBox.Show("Data updated in the database.");
                         }
                         else
                         {
-                            Console.WriteLine("No rows were updated. Verify the ID.");
+                            MessageBox.Show("No rows were updated. Verify the ID.");
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error: " + ex.Message);
+                    MessageBox.Show("Error: " + ex.Message);
                 }
+                connection.Close();
             }
         }
     }
@@ -68,11 +70,11 @@ namespace ScottishGeln
         public string Manufacture { get; set; }
         public string SystemInfo { get; set; }
         public string IpAddress { get; set; }
-        public string PurchaseDate { get; set; }
+        public string PDate { get; set; }
         public string Department { get; set; }
         public string Note { get; set; }
 
-        public Asset(string id, string name, string model, string manufacture, string systemInfo, string ipAddress, string purchaseDate, string department, string note)
+        public Asset(string id, string name, string model, string manufacture, string systemInfo, string ipAddress, string pDate, string department, string note)
         {
             ID = id;
             Name = name;
@@ -80,9 +82,10 @@ namespace ScottishGeln
             Manufacture = manufacture;
             SystemInfo = systemInfo;
             IpAddress = ipAddress;
-            PurchaseDate = purchaseDate;
+            PDate = pDate;
             Department = department;
             Note = note;
         }
     }
+    
 }

@@ -5,9 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScottishGeln"
         mc:Ignorable="d"
-        Title="Employee" Height="450" Width="800">
+        Title="Employee" Height="850" Width="1020">
     <Grid>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="38,43,0,0" VerticalAlignment="Top"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="582,83,0,0" VerticalAlignment="Top" Height="52" Width="126" Click="Add_Click" FontSize="16"/>
+        <Button Content="Edit" HorizontalAlignment="Left" Margin="583,173,0,0" VerticalAlignment="Top" Height="51" Width="125" Click="Edit_Click_1" FontSize="16"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="583,270,0,0" VerticalAlignment="Top" Height="51" Width="125" Click="Delete_Click_2" FontSize="16"/>
+        <Button Content="Show Employee" HorizontalAlignment="Left" Margin="583,355,0,0" VerticalAlignment="Top" Height="51" Width="125" Click="Show_Click_2" FontSize="16"/>
+
+        <Label Content="Name" HorizontalAlignment="Left" Margin="100,132,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Margin="100,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="281" Height="34" x:Name="fnTextbox" FontSize="16"/>
+        <Label Content="Last Name" HorizontalAlignment="Left" Margin="100,208,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Margin="100,239,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="281" Height="35" x:Name="LnTextbox" FontSize="16"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="100,274,0,0" VerticalAlignment="Top" FontSize="16" />
+        <TextBox HorizontalAlignment="Left" Margin="100,305,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="281" Height="35" x:Name="emTextbox" FontSize="16"/>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="100,60,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Margin="100,92,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="281" Height="34" x:Name="idTextbox" FontSize="16"/>
+        <Label Content="Department" HorizontalAlignment="Left" Margin="100,340,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Margin="100,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="281" Height="35" x:Name="depTextbox" FontSize="16"/>
+
+
+
+        <Grid Margin="10,546,10,0" VerticalAlignment="Top" Height="278" >
+            <ScrollViewer  >
+
+                <ListView  x:Name="dataListView" FontSize="18" Height="242" Width="525" >
+                    <ListView.View>
+                        <GridView  >
+                            <GridViewColumn Header="ID" Width="80" DisplayMemberBinding="{Binding Column1}" />
+                            <GridViewColumn Header="First Name" Width="100" DisplayMemberBinding="{Binding Column2}" />
+                            <GridViewColumn Header="Last Name" Width="100" DisplayMemberBinding="{Binding Column3}" />
+                            <GridViewColumn Header="Email" Width="100" DisplayMemberBinding="{Binding Column4}" />
+                            <GridViewColumn Header="Department" Width="120" DisplayMemberBinding="{Binding Column5}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
+        </Grid>
+
+
+
 
     </Grid>
+
+
 </Window>
