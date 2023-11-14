@@ -25,7 +25,7 @@ namespace ScottishGeln
         public Assets()
         {
             InitializeComponent();
-           
+
             dataListView.SelectionChanged += ListView_SelectionChanged;
         }
         // add info to database
@@ -61,7 +61,7 @@ namespace ScottishGeln
                         cmd.Parameters.AddWithValue("@PDate", PDate);
                         cmd.Parameters.AddWithValue("@Department", Department);
                         cmd.Parameters.AddWithValue("@Note", Note);
-                     
+
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
@@ -124,7 +124,7 @@ namespace ScottishGeln
 
                             };
                             data.Add(item);
-                        } 
+                        }
                     }
                 }
             }
@@ -153,7 +153,7 @@ namespace ScottishGeln
             return Environment.GetEnvironmentVariable("COMPUTERNAME");
         }
 
-       
+
         // get loclal device Ip address
         private string GetLocalIPAddress()
         {
@@ -191,62 +191,39 @@ namespace ScottishGeln
                 DateTextBox.Text = selectedData.Column7;
                 departmentComboBox.Text = selectedData.Column8;
                 descriptionTextBox.Text = selectedData.Column9;
-               
+
             }
         }
 
 
         private void UpdateDatabase_Click(object sender, RoutedEventArgs e)
         {
-
-            string connectionString = "server=lochnagar.abertay.ac.uk;username=sql2100258;password=reduces dump risk baths;database=sql2100258;";
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            
+            try
             {
-                try
-                {
-                    connection.Open();
-
-
-                    string ID = IDTextBox.Text; 
-                    string name = nameTextBox.Text;
-                    string Model = ModelTextBox.Text;
-                    string Manufacture = ManTextBox.Text;
-                    string Systeminfo = SysTextBox.Text;
-                    string IpAddress = IpTextBox.Text;
-                    string PDate = DateTextBox.Text;
-                    string Department = (departmentComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
-                    string Note = descriptionTextBox.Text;
-
-                    Calendartxt.SelectedDate = DateTime.Now.AddDays(1);
-                    string insertQuery = "UPDATE Assets SET Name = @Name, Model = @Model, Manufacture = @Manufacture, Systeminfo = @Systeminfo, IpAddress = @IpAddress, PDate = @PDate, Department = @Department, Note = @Note WHERE ID = @ID";
-                    using (MySqlCommand cmd = new MySqlCommand(insertQuery, connection))
-                    {
-                      
-                        cmd.Parameters.AddWithValue("@Name", name);
-                        cmd.Parameters.AddWithValue("@Model", Model);
-                        cmd.Parameters.AddWithValue("@Manufacture", Manufacture);
-                        cmd.Parameters.AddWithValue("@Systeminfo", Systeminfo);
-                        cmd.Parameters.AddWithValue("@IpAddress", IpAddress);
-                        cmd.Parameters.AddWithValue("@PDate", PDate);
-                        cmd.Parameters.AddWithValue("@Department", Department);
-                        cmd.Parameters.AddWithValue("@Note", Note);
-                        cmd.Parameters.AddWithValue("@ID", ID);
-
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Data added to the database.");
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-                connection.Close();
+                               
+                Update db = new Update();
+                Asset au = new Asset(IDTextBox.Text,
+            nameTextBox.Text,
+            ModelTextBox.Text,
+            ManTextBox.Text,
+            SysTextBox.Text,
+            IpTextBox.Text,
+            DateTextBox.Text,
+            (departmentComboBox.SelectedItem as ComboBoxItem)?.Content.ToString(),
+            descriptionTextBox.Text
+            );
+                db.UpdateAsset(au);
+            
+               MessageBox.Show("Update successful!");
             }
 
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
+     
 
         private void DeleteDatabase_Click(object sender, RoutedEventArgs e)
         {
