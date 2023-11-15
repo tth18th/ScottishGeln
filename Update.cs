@@ -11,25 +11,27 @@ namespace ScottishGeln
 {
    class Update
     {
-        private string connectionString;
+        //private string connectionString;
 
-        public  Update()
-        {
-             connectionString = "server=lochnagar.abertay.ac.uk;username=sql2100258;password=reduces dump risk baths;database=sql2100258;";
-
-        }
+        //public  Update()
+        //{
+        //    database db = new  database();
+        //    // connectionString = "server=lochnagar.abertay.ac.uk;username=sql2100258;password=reduces dump risk baths;database=sql2100258;";
+            
+        //}
 
         public void UpdateAsset(Asset asset)
         {
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                try
+            database db = new database();
+            //using (MySqlConnection connection = new MySqlConnection(connectionString))
+            //{
+            try
                 {
-                    connection.Open();
+                  //  connection.Open();
 
                     string updateQuery = "UPDATE Assets SET Name = @Name, Model = @Model, Manufacture = @Manufacture, Systeminfo = @Systeminfo, IpAddress = @IpAddress, PDate = @PDate, Department = @Department, Note = @Note WHERE ID = @ID";
 
-                    using (MySqlCommand cmd = new MySqlCommand(updateQuery, connection))
+                    using (MySqlCommand cmd = new MySqlCommand(updateQuery, db.GetConnection()))
                     {
                         cmd.Parameters.AddWithValue("@Name", asset.Name);
                         cmd.Parameters.AddWithValue("@Model", asset.Model);
@@ -49,7 +51,7 @@ namespace ScottishGeln
                         }
                         else
                         {
-                            MessageBox.Show("No rows were updated. Verify the ID.");
+                            MessageBox.Show("No rows were updated.");
                         }
                     }
                 }
@@ -57,7 +59,7 @@ namespace ScottishGeln
                 {
                     MessageBox.Show("Error: " + ex.Message);
                 }
-                connection.Close();
+               // connection.Close();
             }
         }
     }
@@ -88,4 +90,4 @@ namespace ScottishGeln
         }
     }
     
-}
+

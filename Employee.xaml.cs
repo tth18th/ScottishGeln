@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using static ScottishGeln.Assets;
+
 using MySql.Data.MySqlClient;
 
 namespace ScottishGeln
@@ -34,7 +34,7 @@ namespace ScottishGeln
             public string Column3 { get; set; }
             public string Column4 { get; set; }
             public string Column5 { get; set; }
-           
+
         }
 
         private void Show_Click_2(object sender, RoutedEventArgs e)
@@ -60,7 +60,7 @@ namespace ScottishGeln
                                 Column3 = reader["lastname"].ToString(),
                                 Column4 = reader["email"].ToString(),
                                 Column5 = reader["department"].ToString(),
-                               
+
                             };
                             data.Add(item);
                         }
@@ -80,24 +80,104 @@ namespace ScottishGeln
                 idTextbox.Text = selectedData.Column1;
                 fnTextbox.Text = selectedData.Column2;
                 LnTextbox.Text = selectedData.Column3;
-                emTextbox.Text = selectedData.Column4;  
-                depTextbox.Text = selectedData.Column5; 
+                emTextbox.Text = selectedData.Column4;
+                depTextbox.Text = selectedData.Column5;
 
             }
         }
         private void Add_Click(object sender, RoutedEventArgs e)
         {
+            database d = new database();
 
+            try
+            {
+
+                // d.GetConnection().Open();
+
+                string id = idTextbox.Text;
+                string fname = fnTextbox.Text;
+                string lname = LnTextbox.Text;
+                string email = emTextbox.Text;
+                string dep = depTextbox.Text;
+
+                string insertq = "INSERT INTO staff (id,firstname,lastname,email,department) values(FLOOR(10000 + RAND() * 90000),@fname,@lname,@email,@dep)";
+                using (MySqlCommand cmd = new MySqlCommand(insertq, d.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@fname", fname);
+                    cmd.Parameters.AddWithValue("@lname", lname);
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@dep", dep);
+
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Data added to the database.");
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
+
+
 
         private void Edit_Click_1(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                updateEmp emp = new updateEmp();
+                Staff st = new Staff(
+                 idTextbox.Text,
+                 fnTextbox.Text,
+                 LnTextbox.Text,
+                 emTextbox.Text,
+                 depTextbox.Text
+                 );
+                emp.updateEmployee(st);
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
 
         }
 
         private void Delete_Click_2(object sender, RoutedEventArgs e)
         {
+            database d = new database();
 
+            try
+            {
+
+                string ID = idTextbox.Text;
+
+                string insertQuery = "DELETE FROM staff  WHERE ID = @ID";
+                using (MySqlCommand cmd = new MySqlCommand(insertQuery, d.GetConnection()))
+                {
+
+                    //
+                    cmd.Parameters.AddWithValue("@ID", ID);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Data deleted to the database.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }
+

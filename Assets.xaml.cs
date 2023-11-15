@@ -98,12 +98,10 @@ namespace ScottishGeln
             List<DataItem> data = new List<DataItem>();
 
 
-            string connectionString = "server=lochnagar.abertay.ac.uk;username=sql2100258;password=reduces dump risk baths;database=sql2100258;";
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                connection.Open();
+           database d = new database();
+                
                 string query = "SELECT ID,Name,Model,Manufacture,Systeminfo,IpAddress,PDate,Department,Note FROM Assets";
-                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                using (MySqlCommand cmd = new MySqlCommand(query, d.GetConnection()))
                 {
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -127,7 +125,7 @@ namespace ScottishGeln
                         }
                     }
                 }
-            }
+            
 
             dataListView.ItemsSource = data;
         }
@@ -215,7 +213,7 @@ namespace ScottishGeln
             );
                 db.UpdateAsset(au);
             
-               MessageBox.Show("Update successful!");
+             
             }
 
             catch (Exception ex)
@@ -227,19 +225,15 @@ namespace ScottishGeln
 
         private void DeleteDatabase_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "server=lochnagar.abertay.ac.uk;username=sql2100258;password=reduces dump risk baths;database=sql2100258;";
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
+            database d = new database();
+           
                 try
                 {
-                    connection.Open();
-
-
-                    string ID = IDTextBox.Text;
                     
-                   
+                    string ID = IDTextBox.Text;
+                                       
                     string insertQuery = "DELETE FROM Assets  WHERE ID = @ID";
-                    using (MySqlCommand cmd = new MySqlCommand(insertQuery, connection))
+                    using (MySqlCommand cmd = new MySqlCommand(insertQuery, d.GetConnection()))
                     {
 
                         //
@@ -256,8 +250,8 @@ namespace ScottishGeln
                 {
                     MessageBox.Show("Error: " + ex.Message);
                 }
-                connection.Close();
-            }
+             
+            
         }
 
         private void GetClear_Click(object sender, RoutedEventArgs e)
