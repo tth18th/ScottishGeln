@@ -265,5 +265,12 @@ namespace ScottishGeln
             DateTextBox.Text = string.Empty;
             descriptionTextBox.Text = string.Empty; 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+           MainWindow m = new MainWindow();
+            m.Show();
+            this.Close();
+        }
     }
 }

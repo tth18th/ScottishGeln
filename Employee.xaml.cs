@@ -37,7 +37,7 @@ namespace ScottishGeln
 
         }
 
-        private void Show_Click_2(object sender, RoutedEventArgs e)
+        private void Show_Click(object sender, RoutedEventArgs e)
         {
             List<DataItem> data = new List<DataItem>();
 
@@ -81,7 +81,7 @@ namespace ScottishGeln
                 fnTextbox.Text = selectedData.Column2;
                 LnTextbox.Text = selectedData.Column3;
                 emTextbox.Text = selectedData.Column4;
-                depTextbox.Text = selectedData.Column5;
+                depComtbox.Text = selectedData.Column5;
 
             }
         }
@@ -98,7 +98,7 @@ namespace ScottishGeln
                 string fname = fnTextbox.Text;
                 string lname = LnTextbox.Text;
                 string email = emTextbox.Text;
-                string dep = depTextbox.Text;
+                string dep = (depComtbox.SelectedItem as ComboBoxItem)?.Content.ToString(); 
 
                 string insertq = "INSERT INTO staff (id,firstname,lastname,email,department) values(FLOOR(10000 + RAND() * 90000),@fname,@lname,@email,@dep)";
                 using (MySqlCommand cmd = new MySqlCommand(insertq, d.GetConnection()))
@@ -127,7 +127,7 @@ namespace ScottishGeln
 
 
 
-        private void Edit_Click_1(object sender, RoutedEventArgs e)
+        private void Edit_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -137,7 +137,7 @@ namespace ScottishGeln
                  fnTextbox.Text,
                  LnTextbox.Text,
                  emTextbox.Text,
-                 depTextbox.Text
+                 depComtbox.Text
                  );
                 emp.updateEmployee(st);
 
@@ -150,7 +150,7 @@ namespace ScottishGeln
 
         }
 
-        private void Delete_Click_2(object sender, RoutedEventArgs e)
+        private void Delete_Click(object sender, RoutedEventArgs e)
         {
             database d = new database();
 
@@ -178,6 +178,17 @@ namespace ScottishGeln
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            fnTextbox.Text = string.Empty;
+            LnTextbox.Text = string.Empty;
+            emTextbox.Text = string.Empty;
+            idTextbox.Text = string.Empty;
+            depComtbox.Text = string.Empty;
+
+        }
+
     }
 }
 

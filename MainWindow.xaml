@@ -5,12 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScottishGeln"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="920">
+        Title="MainWindow" Height="850" Width="1020">
     <Grid>
-        <Label Content="ScottishGeln" HorizontalAlignment="Left" Margin="256,81,0,0" VerticalAlignment="Top" Height="107" Width="341" FontSize="48"/>
-        <Button Content="Add Assets" HorizontalAlignment="Left" Margin="85,347,0,0" VerticalAlignment="Top" FontSize="24" Click="Button_Click" Height="70" Width="188"/>
-        <Button Content="Employee" HorizontalAlignment="Left" Margin="365,347,0,0" VerticalAlignment="Top" FontSize="24" Click="Button_Click_1" Height="70" Width="168"/>
-        <Button Content="Department" HorizontalAlignment="Left" Margin="620,347,0,0" VerticalAlignment="Top" FontSize="24" Click="Button_Click_2" Height="70" Width="195"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1.5" StartPoint="0.1,1">
+                <GradientStop Color="#FF54EDDE" Offset="0.7"/>
+                <GradientStop Color="#FF37BEB0" Offset="0.1"/>
+                <GradientStop Color="#FFA4FDC2" Offset="1.2"/>
+                <GradientStop Color="#FF81BBF1" Offset="1"/>
+                <GradientStop Color="#FF72FFCF"/>
+                <GradientStop Color="#FF405D77" Offset="10"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Label Content="&#xD;&#xA;   ScottishGeln" HorizontalAlignment="Center" Margin="0,144,0,0" VerticalAlignment="Top" Height="172" Width="694" FontSize="50" Foreground="#FFC8553D" FontFamily="Sesame" FontStretch="SemiCondensed">
+            <Label.Background>
+                <ImageBrush Opacity="0.8"/>
+            </Label.Background>
+        </Label>
+        <Button Content="Add Assets" HorizontalAlignment="Left" Margin="153,452,0,0" VerticalAlignment="Top" FontSize="24" Click="Button_Click" Height="70" Width="188" Background="#FFE98980" Foreground="Black"/>
+        <Button Content="Employee" HorizontalAlignment="Left" Margin="433,452,0,0" VerticalAlignment="Top" FontSize="24" Click="Button_Click_1" Height="70" Width="168" Background="#FFE98980" Foreground="Black"/>
+        <Button Content="Department" HorizontalAlignment="Left" Margin="688,452,0,0" VerticalAlignment="Top" FontSize="24" Click="Button_Click_2" Height="70" Width="195" Background="#FFE98980" Foreground="Black"/>
 
     </Grid>
+
 </Window>
