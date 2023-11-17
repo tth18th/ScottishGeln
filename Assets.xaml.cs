@@ -31,15 +31,11 @@ namespace ScottishGeln
         // add info to database
         private void AddToDatabase_Click(object sender, RoutedEventArgs e)
         {
-
-
-            string connectionString = "server=lochnagar.abertay.ac.uk;username=sql2100258;password=reduces dump risk baths;database=sql2100258;";
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
+           database db = new database();
+            
                 try
                 {
-                    connection.Open();
-
+                 
                     string name = nameTextBox.Text;
                     string Model = ModelTextBox.Text;
                     string Manufacture = ManTextBox.Text;
@@ -48,10 +44,11 @@ namespace ScottishGeln
                     string PDate = DateTextBox.Text;
                     string Department = (departmentComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
                     string Note = descriptionTextBox.Text;
-
                     Calendartxt.SelectedDate = DateTime.Now.AddDays(1);
+
+
                     string insertQuery = "INSERT INTO Assets (ID,Name,Model,Manufacture,Systeminfo,IpAddress,PDate,Department,Note) VALUES (FLOOR(10000 + RAND() * 90000),@Name, @Model, @Manufacture,@Systeminfo,@IpAddress,@PDate,@Department,@Note)";
-                    using (MySqlCommand cmd = new MySqlCommand(insertQuery, connection))
+                    using (MySqlCommand cmd = new MySqlCommand(insertQuery, db.GetConnection()))
                     {
                         cmd.Parameters.AddWithValue("@Name", name);
                         cmd.Parameters.AddWithValue("@Model", Model);
@@ -73,8 +70,8 @@ namespace ScottishGeln
                 {
                     MessageBox.Show("Error: " + ex.Message);
                 }
-                connection.Close();
-            }
+                
+            
 
         }
         // getter and setter for the column where show assets info 

@@ -22,23 +22,23 @@
 
 
 
-        <Label Content="ID" HorizontalAlignment="Left" Margin="49,29,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <TextBox x:Name="IDTextBox" Height="30" HorizontalAlignment="Left" Width="200" Margin="223,33,0,977" FontSize="18"/>
-        <Label Content="Name" HorizontalAlignment="Left" Margin="49,74,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <TextBox x:Name="nameTextBox" Height="30" Width="200" Margin="173,56,577,914" FontSize="18"/>
-        <Label Content="Model" HorizontalAlignment="Left" Margin="49,121,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <TextBox x:Name="ModelTextBox"  Height="30" Width="200" Margin="173,105,577,865" FontSize="18"/>
-        <Label Content="Manufacture" HorizontalAlignment="Left" Margin="49,177,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <TextBox x:Name="ManTextBox"  Height="30" Margin="173,159,577,811" Width="200" FontSize="18"/>
-        <Label Content="System" HorizontalAlignment="Left" Margin="49,230,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,2.12" FontSize="18"/>
-        <TextBox x:Name="SysTextBox"  Height="30" Width="200" Margin="173,214,577,756" FontSize="18"/>
-        <Label Content="IP Adress" HorizontalAlignment="Left" Margin="49,277,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <TextBox x:Name="IpTextBox" Height="30" Width="200" Margin="173,261,577,709" FontSize="18"/>
-        <Calendar  x:Name="Calendartxt" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="262" FontSize="16" Margin="428,362,0,0" />
-        <Label x:Name="SelectDate" FontSize="18" Height="32" Panel.ZIndex="-3" Content="Select Date" Margin="49,414,773,554"/>
-        <TextBox x:Name="DateTextBox" Text="{Binding SelectedDate, ElementName=Calendartxt, StringFormat=d, UpdateSourceTrigger=PropertyChanged}" Margin="223,434,627,565" FontSize="18" RenderTransformOrigin="0.661,0.501"/>
-        <Label Content="Department" HorizontalAlignment="Left" Margin="44,330,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <ComboBox x:Name="departmentComboBox" SelectedIndex="0" FontSize="16" Height="25" Margin="223,330,627,685">
+        <Label Content="ID" HorizontalAlignment="Left" Margin="49,29,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <TextBox x:Name="IDTextBox" Height="30" HorizontalAlignment="Left" Width="200" Margin="223,33,0,977" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="49,74,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <TextBox x:Name="nameTextBox" Height="30" Width="200" Margin="173,56,577,914" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Model" HorizontalAlignment="Left" Margin="49,121,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <TextBox x:Name="ModelTextBox"  Height="30" Width="200" Margin="173,105,577,865" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Manufacture" HorizontalAlignment="Left" Margin="49,177,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <TextBox x:Name="ManTextBox"  Height="30" Margin="173,159,577,811" Width="200" FontSize="16" FontWeight="Bold"/>
+        <Label Content="System" HorizontalAlignment="Left" Margin="49,230,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,2.12" FontSize="18" FontWeight="Bold"/>
+        <TextBox x:Name="SysTextBox"  Height="30" Width="200" Margin="173,214,577,756" FontSize="16" FontWeight="Bold"/>
+        <Label Content="IP Adress" HorizontalAlignment="Left" Margin="49,277,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <TextBox x:Name="IpTextBox" Height="30" Width="200" Margin="173,261,577,709" FontSize="16" FontWeight="Bold"/>
+        <Calendar  x:Name="Calendartxt" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="262" FontSize="16" Margin="428,362,0,0" FontWeight="Bold" />
+        <Label x:Name="SelectDate" FontSize="18" Height="32" Panel.ZIndex="-3" Content="Select Date" Margin="49,414,773,554" FontWeight="Bold"/>
+        <TextBox x:Name="DateTextBox" Text="{Binding SelectedDate, ElementName=Calendartxt, StringFormat=d, UpdateSourceTrigger=PropertyChanged}" Margin="223,434,627,565" FontSize="16" RenderTransformOrigin="0.661,0.501" FontWeight="Bold"/>
+        <Label Content="Department" HorizontalAlignment="Left" Margin="44,330,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <ComboBox x:Name="departmentComboBox" SelectedIndex="0" FontSize="16" Height="25" Margin="223,330,627,685" FontWeight="Bold">
             <!-- Add department items -->
             <ComboBoxItem Content="HR"/>
             <ComboBoxItem Content="IT"/>
@@ -46,17 +46,17 @@
             <ComboBoxItem Content="Sale"/>
             <ComboBoxItem Content="Operations"/>
         </ComboBox>
-        <Label Content="Description" HorizontalAlignment="Left" Margin="49,539,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <TextBox x:Name="descriptionTextBox" TextWrapping="Wrap" Margin="173,541,345,418" FontSize="18"/>
+        <Label Content="Description" HorizontalAlignment="Left" Margin="49,539,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <TextBox x:Name="descriptionTextBox" TextWrapping="Wrap" Margin="173,541,345,418" FontSize="16" FontWeight="Bold"/>
 
 
-        <Grid Margin="26,609,10,244"  >
-            <Button Content="Add to Database" FontSize="16" Click="AddToDatabase_Click" Width="150" HorizontalAlignment="Left" Margin="31,10,0,87" Height="50" Background="#FFE98980"/>
-            <Button Content="Show Assets" FontSize="16" Click="ShowDatabase_Click" Width="150" HorizontalAlignment="Center" Margin="0,10,0,87" Height="50" Background="#FFE98980"/>
-            <Button Content="Update Assets" FontSize="16" Click="UpdateDatabase_Click" Width="150" HorizontalAlignment="Left" Margin="31,62,0,-3" Height="50" Background="#FFE98980"/>
-            <Button Content="Delete Assets" FontSize="16" Click="DeleteDatabase_Click" Width="150" HorizontalAlignment="Left" Margin="698,15,0,82" RenderTransformOrigin="0.489,0.899" Height="50" Background="#FFE98980"/>
-            <Button  Content="Get System Info" FontSize="16" Click="GetInfo_Click" Width="150"  HorizontalAlignment="Center" Margin="0,81,0,16" Height="50" Background="#FFE98980"/>
-            <Button  Content="Clear" FontSize="16" Click="GetClear_Click" Width="150"  HorizontalAlignment="Left" Margin="698,81,0,16" Height="50" Background="#FFE98980"/>
+        <Grid Margin="36,607,0,246"  >
+            <Button Content="Add to Database" FontSize="16" Click="AddToDatabase_Click" Width="150" HorizontalAlignment="Left" Margin="31,10,0,87" Height="50" Background="#FFE98980" FontWeight="Bold"/>
+            <Button Content="Show Assets" FontSize="16" Click="ShowDatabase_Click" Width="150" HorizontalAlignment="Center" Margin="0,10,0,87" Height="50" Background="#FFE98980" FontWeight="Bold"/>
+            <Button Content="Update Assets" FontSize="16" Click="UpdateDatabase_Click" Width="150" HorizontalAlignment="Left" Margin="31,62,0,-3" Height="50" Background="#FFE98980" FontWeight="Bold"/>
+            <Button Content="Delete Assets" FontSize="16" Click="DeleteDatabase_Click" Width="150" HorizontalAlignment="Left" Margin="698,15,0,82" RenderTransformOrigin="0.489,0.899" Height="50" Background="#FFE98980" FontWeight="Bold"/>
+            <Button  Content="Get System Info" FontSize="16" Click="GetInfo_Click" Width="150"  HorizontalAlignment="Center" Margin="0,81,0,16" Height="50" Background="#FFE98980" FontWeight="Bold"/>
+            <Button  Content="Clear" FontSize="16" Click="GetClear_Click" Width="150"  HorizontalAlignment="Left" Margin="698,81,0,16" Height="50" Background="#FFE98980" FontWeight="Bold"/>
 
         </Grid>
         <Grid Margin="26,770,19,26" >
