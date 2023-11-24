@@ -23,28 +23,28 @@
 
 
         <Label Content="ID" HorizontalAlignment="Left" Margin="49,29,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <TextBox x:Name="IDTextBox" Height="30" HorizontalAlignment="Left" Width="200" Margin="223,33,0,977" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="IDTextBox" Height="30" HorizontalAlignment="Left" Width="425" Margin="223,33,0,977" FontSize="16" FontWeight="Bold"/>
         <Label Content="Name" HorizontalAlignment="Left" Margin="49,74,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <TextBox x:Name="nameTextBox" Height="30" Width="200" Margin="173,56,577,914" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="nameTextBox" Height="30" Margin="223,76,402,934" FontSize="16" FontWeight="Bold"/>
         <Label Content="Model" HorizontalAlignment="Left" Margin="49,121,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <TextBox x:Name="ModelTextBox"  Height="30" Width="200" Margin="173,105,577,865" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="ModelTextBox"  Height="30" Margin="223,125,402,885" FontSize="16" FontWeight="Bold"/>
         <Label Content="Manufacture" HorizontalAlignment="Left" Margin="49,177,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <TextBox x:Name="ManTextBox"  Height="30" Margin="173,159,577,811" Width="200" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="ManTextBox"  Height="30" Margin="223,179,402,831" FontSize="16" FontWeight="Bold"/>
         <Label Content="System" HorizontalAlignment="Left" Margin="49,230,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,2.12" FontSize="18" FontWeight="Bold"/>
-        <TextBox x:Name="SysTextBox"  Height="30" Width="200" Margin="173,214,577,756" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="SysTextBox"  Height="30" Margin="223,234,402,776" FontSize="16" FontWeight="Bold"/>
         <Label Content="IP Adress" HorizontalAlignment="Left" Margin="49,277,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <TextBox x:Name="IpTextBox" Height="30" Width="200" Margin="173,261,577,709" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="IpTextBox" Height="30" Margin="223,281,402,729" FontSize="16" FontWeight="Bold"/>
         <Calendar  x:Name="Calendartxt" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="262" FontSize="16" Margin="428,362,0,0" FontWeight="Bold" />
         <Label x:Name="SelectDate" FontSize="18" Height="32" Panel.ZIndex="-3" Content="Select Date" Margin="49,414,773,554" FontWeight="Bold"/>
         <TextBox x:Name="DateTextBox" Text="{Binding SelectedDate, ElementName=Calendartxt, StringFormat=d, UpdateSourceTrigger=PropertyChanged}" Margin="223,434,627,565" FontSize="16" RenderTransformOrigin="0.661,0.501" FontWeight="Bold"/>
         <Label Content="Department" HorizontalAlignment="Left" Margin="44,330,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <ComboBox x:Name="departmentComboBox" SelectedIndex="0" FontSize="16" Height="25" Margin="223,330,627,685" FontWeight="Bold">
+        <ComboBox x:Name="departmentComboBox" SelectedIndex="0" FontSize="16" Height="25" Margin="223,330,402,685" FontWeight="Bold">
             <!-- Add department items -->
-            <ComboBoxItem Content="HR"/>
-            <ComboBoxItem Content="IT"/>
             <ComboBoxItem Content="Finance"/>
-            <ComboBoxItem Content="Sale"/>
+            <ComboBoxItem Content="Human Resources"/>
             <ComboBoxItem Content="Operations"/>
+            <ComboBoxItem Content="Information Technology"/>
+            <ComboBoxItem Content="Sales"/>
         </ComboBox>
         <Label Content="Description" HorizontalAlignment="Left" Margin="49,539,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
         <TextBox x:Name="descriptionTextBox" TextWrapping="Wrap" Margin="173,541,345,418" FontSize="16" FontWeight="Bold"/>
@@ -79,7 +79,11 @@
                 </ListView>
             </ScrollViewer>
         </Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="856,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.59,-0.8" Click="Button_Click"/>
+        <Button HorizontalAlignment="Left" Margin="830,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.59,-0.8" Click="Button_Click" Height="42" Width="54">
+            <Button.Background>
+                <ImageBrush ImageSource="/back.png"/>
+            </Button.Background>
+        </Button>
 
 
     </Grid>

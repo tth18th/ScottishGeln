@@ -9,6 +9,8 @@ namespace ScottishGeln
     /// </summary>
     public partial class Login : Window
     {
+        public string Password { get; set; }
+
         public Login()
         {
             InitializeComponent();
@@ -65,14 +67,13 @@ namespace ScottishGeln
             }
             // Optionally, close the login window.
 
-
             else
             {
 
                 MessageBox.Show("Invalid username or password.");
             }
+                    }
 
-
-        }
     }
+
     }

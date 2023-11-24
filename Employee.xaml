@@ -26,16 +26,16 @@
         <Button Content="Clear Boxes" HorizontalAlignment="Left" Margin="752,173,0,0" VerticalAlignment="Top" Height="51" Width="125" Click="Clear_Click" FontSize="16" Background="#FFE98980" FontWeight="Bold"/>
 
 
-        <Label Content="First Name" HorizontalAlignment="Left" Margin="100,132,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Margin="100,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="281" Height="34" x:Name="fnTextbox" FontSize="18" FontWeight="Bold"/>
-        <Label Content="Last Name" HorizontalAlignment="Left" Margin="100,208,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Margin="100,239,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="281" Height="35" x:Name="LnTextbox" FontSize="18" FontWeight="Bold"/>
-        <Label Content="Email" HorizontalAlignment="Left" Margin="100,274,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" />
-        <TextBox HorizontalAlignment="Left" Margin="100,305,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="281" Height="35" x:Name="emTextbox" FontSize="18" FontWeight="Bold"/>
+        <Label Content="First Name" HorizontalAlignment="Left" Margin="100,132,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="148"/>
+        <TextBox HorizontalAlignment="Left" Margin="100,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="410" Height="34" x:Name="fnTextbox" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Last Name" HorizontalAlignment="Left" Margin="100,208,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="144"/>
+        <TextBox HorizontalAlignment="Left" Margin="100,239,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="410" Height="35" x:Name="LnTextbox" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="100,274,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="82" />
+        <TextBox HorizontalAlignment="Left" Margin="100,305,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="410" Height="35" x:Name="emTextbox" FontSize="18" FontWeight="Bold"/>
         <Label Content="ID" HorizontalAlignment="Left" Margin="100,60,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Margin="100,92,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="281" Height="34" x:Name="idTextbox" FontSize="18" FontWeight="Bold"/>
-        <Label Content="Department" HorizontalAlignment="Left" Margin="100,340,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <ComboBox  x:Name="depComtbox"  Margin="100,390,569,564" Height="40" FontWeight="Bold" >
+        <TextBox HorizontalAlignment="Left" Margin="100,92,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="410" Height="34" x:Name="idTextbox" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Department" HorizontalAlignment="Left" Margin="100,340,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="164"/>
+        <ComboBox  x:Name="depComtbox"  Margin="100,380,440,584" Height="40" FontWeight="Bold" FontSize="18" >
             <ComboBoxItem Content="Finance"/>
             <ComboBoxItem Content="Human Resources"/>
             <ComboBoxItem Content="Operations"/>
@@ -43,7 +43,13 @@
             <ComboBoxItem Content="Sales"/>
         </ComboBox>
 
-
+        <ComboBox x:Name="assetComboBox" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="100,467,0,0" VerticalAlignment="Top" Width="410" Height="35" FontSize="18" FontWeight="Bold">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
         <Grid Margin="10,546,10,0" VerticalAlignment="Top" Height="278" >
             <Grid.Background>
@@ -72,6 +78,12 @@
                 </ListView>
             </ScrollViewer>
         </Grid>
+        <Button Content="Assign Asset" HorizontalAlignment="Left" Margin="582,467,0,0" VerticalAlignment="Top" Height="48" Width="149" Click="AssignAsset_Click"/>
+        <Button HorizontalAlignment="Left" Margin="10,10,0,957" Width="55" Click="Button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/back.png"/>
+            </Button.Background>
+        </Button>
 
 
 

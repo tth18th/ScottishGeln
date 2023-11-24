@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="27-Loch-Oich.jpg" />
+    <None Remove="back.png" />
     <None Remove="TUH_3696-Pano-Edit.jpg" />
   </ItemGroup>
 
@@ -19,6 +20,7 @@
 
   <ItemGroup>
     <Resource Include="27-Loch-Oich.jpg" />
+    <Resource Include="back.png" />
     <Resource Include="TUH_3696-Pano-Edit.jpg" />
   </ItemGroup>
 

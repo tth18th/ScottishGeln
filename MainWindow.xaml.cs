@@ -13,8 +13,9 @@ namespace ScottishGeln
         public MainWindow()
         {
 
-            windowlog();
+           windowlog();
             InitializeComponent();
+           
 
         }
 
@@ -33,7 +34,7 @@ namespace ScottishGeln
             {
                 // If login fails, you might want to exit the application or take appropriate action
                 Application.Current.Shutdown();
-              
+
 
             }
 

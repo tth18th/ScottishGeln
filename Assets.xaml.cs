@@ -1,19 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
+using Microsoft.Win32;
+using Microsoft.VisualBasic;
+
 
 namespace ScottishGeln
 {
@@ -115,9 +109,7 @@ namespace ScottishGeln
                                 Column7 = reader["PDate"].ToString(),
                                 Column8 = reader["Department"].ToString(),
                                 Column9 = reader["Note"].ToString()
-
-
-                            };
+                             };
                             data.Add(item);
                         }
                     }
@@ -131,8 +123,8 @@ namespace ScottishGeln
         {
             // Get system information
             string systemName = Environment.MachineName;
-            string systemModel = GetSystemModel();
-            string systemManufacturer = Environment.OSVersion.Version.ToString();
+            string systemModel = "Windows\t " + Environment.OSVersion.Version.ToString();
+            string systemManufacturer = $"{systemName}";
             string systemType = Environment.Is64BitOperatingSystem ? "64-bit" : "32-bit";
             string ipAddress = GetLocalIPAddress();
 
@@ -147,6 +139,7 @@ namespace ScottishGeln
         {
             return Environment.GetEnvironmentVariable("COMPUTERNAME");
         }
+      
 
 
         // get loclal device Ip address

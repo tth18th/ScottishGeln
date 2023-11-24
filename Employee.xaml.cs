@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,7 @@ namespace ScottishGeln
         {
             InitializeComponent();
             dataListView.SelectionChanged += ListView_SelectionChanged;
+            LoadAssets();
         }
         public class DataItem
         {
@@ -40,14 +42,10 @@ namespace ScottishGeln
         private void Show_Click(object sender, RoutedEventArgs e)
         {
             List<DataItem> data = new List<DataItem>();
-
-
-            string connectionString = "server=lochnagar.abertay.ac.uk;username=sql2100258;password=reduces dump risk baths;database=sql2100258;";
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                connection.Open();
+            database d = new database();
+                              
                 string query = "SELECT id,firstname,lastname,email,department FROM staff";
-                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                using (MySqlCommand cmd = new MySqlCommand(query, d.GetConnection()))
                 {
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -66,7 +64,7 @@ namespace ScottishGeln
                         }
                     }
                 }
-            }
+            
 
             dataListView.ItemsSource = data;
         }
@@ -188,6 +186,107 @@ namespace ScottishGeln
             depComtbox.Text = string.Empty;
 
         }
+
+        private void LoadAssets()
+        {
+            // Assume you have a method to retrieve assets from the database
+            List<string> assets = GetAssetsFromDatabase();
+
+            
+            // Populate the ComboBox with assets
+            assetComboBox.ItemsSource = assets;
+        }
+
+        private List<string> GetAssetsFromDatabase()
+        {
+            List<string> assets = new List<string>();
+
+            database d = new database();
+            try
+            {           
+                    string query = "SELECT Name FROM Assets"; // Adjust the table and column names accordingly
+                    using (MySqlCommand cmd = new MySqlCommand(query, d.GetConnection()))
+                    {
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string assetName = reader["Name"].ToString(); // Adjust the column name accordingly
+                                assets.Add(assetName);
+                            }
+                        }
+                    }                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+            return assets;
+        }
+
+      
+
+        private void AssignAsset_Click(object sender, RoutedEventArgs e)
+        {
+            
+                string selectedAsset = assetComboBox.SelectedItem as string;
+                string selectedEmployee = $"{fnTextbox.Text} {LnTextbox.Text}";
+              
+                if (selectedAsset != null && !string.IsNullOrEmpty(selectedEmployee) )
+                {
+                    // Call a method to perform the assignment and update the database
+                    AssignAssetToEmployee(selectedAsset, selectedEmployee);
+
+                    // Show a message or perform any other actions if needed
+                    MessageBox.Show($"Asset '{selectedAsset}' assigned to employee '{selectedEmployee}'");
+                }
+                else
+                {
+                    MessageBox.Show("Please select an asset and ensure employee information is complete.");
+                }
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow m = new MainWindow();
+            m.Show();
+            this.Close();
+
+        }
+
+
+        private void AssignAssetToEmployee(string assetName, string employeeName)
+        {
+
+            database d = new database();
+            try
+            {
+                string insertQuery = "INSERT INTO Assaigne_asset (id, Asset_name, Employees_name) VALUES (FLOOR(10000 + RAND() * 90000),@AssetName, @EmployeeName)";
+                using (MySqlCommand cmd = new MySqlCommand(insertQuery, d.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@AssetName", assetName);
+                    cmd.Parameters.AddWithValue("@EmployeeName", employeeName);
+                  
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        // Asset assigned successfully
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to assign the asset. Please check your input.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
 
     }
 }

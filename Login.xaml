@@ -22,7 +22,8 @@
         <Label Content="User Name" HorizontalAlignment="Left" Margin="280,132,0,0" VerticalAlignment="Top" Height="60" Width="241" FontSize="22" FontWeight="Bold"/>
         <TextBox HorizontalAlignment="Center" Margin="0,197,0,0" TextWrapping="Wrap" x:Name="UserTextBox" VerticalAlignment="Top" Width="390" FontSize="20" Height="42"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="280,299,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="22" Height="53" Width="151" FontWeight="Bold"/>
-        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Center" Margin="0,352,0,0" VerticalAlignment="Top" Width="390" Height="37"/>
+        <PasswordBox  x:Name="PasswordBox" HorizontalAlignment="Center" Margin="0,352,0,0" VerticalAlignment="Top" Width="390" Height="37" />
+               <CheckBox x:Name="showPassCheckBox" Content="Show" HorizontalAlignment="Left" Margin="675,352,0,0" VerticalAlignment="Top" FontSize="18" Width="131" Height="37" />
 
     </Grid>
 </Window>
