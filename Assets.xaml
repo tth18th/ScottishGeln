@@ -79,7 +79,7 @@
                 </ListView>
             </ScrollViewer>
         </Grid>
-        <Button HorizontalAlignment="Left" Margin="830,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.59,-0.8" Click="Button_Click" Height="42" Width="54">
+        <Button HorizontalAlignment="Left" Margin="830,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.59,-0.8" Click="Button_Click" Height="54" Width="82">
             <Button.Background>
                 <ImageBrush ImageSource="/back.png"/>
             </Button.Background>

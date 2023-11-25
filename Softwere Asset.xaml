@@ -1,0 +1,67 @@
+﻿<Window x:Class="ScottishGeln.Softwere_Asset"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScottishGeln"
+        mc:Ignorable="d"
+        Title="Softwere_Asset" Height="850" Width="1120">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1.5" StartPoint="0.1,1">
+                <GradientStop Color="#FF54EDDE" Offset="0.7"/>
+                <GradientStop Color="#FF37BEB0" Offset="0.1"/>
+                <GradientStop Color="#FFA4FDC2" Offset="1.2"/>
+                <GradientStop Color="#FF81BBF1" Offset="1"/>
+                <GradientStop Color="#FF72FFCF"/>
+                <GradientStop Color="#FF405D77" Offset="10"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+        <Button HorizontalAlignment="Left" Margin="10,10,0,751" Width="135" Click="Button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/back.png"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Os Name" HorizontalAlignment="Left" Margin="78,218,0,0" VerticalAlignment="Top" Height="42" Width="96" FontSize="18" FontWeight="Bold"/>
+        <TextBox x:Name="osTextBox" HorizontalAlignment="Left" Margin="78,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" FontSize="18" Height="42"/>
+        <Label Content="Id" HorizontalAlignment="Left" Margin="78,117,0,0" VerticalAlignment="Top" Height="42" Width="96" FontSize="18" FontWeight="Bold"/>
+        <TextBox x:Name="IdTextBox" HorizontalAlignment="Left" Margin="78,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" FontSize="18" Height="42"/>
+        <Label Content="Version" HorizontalAlignment="Left" Margin="78,312,0,0" VerticalAlignment="Top" Height="42" Width="96" FontSize="18" FontWeight="Bold"/>
+        <TextBox x:Name="versionTextBox" HorizontalAlignment="Left" Margin="78,354,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" FontSize="18" Height="42"/>
+        <Label Content="Manufacturer" HorizontalAlignment="Left" Margin="78,401,0,0" VerticalAlignment="Top" Height="42" Width="150" FontSize="18" FontWeight="Bold"/>
+        <TextBox x:Name="manTextBox" HorizontalAlignment="Left" Margin="78,444,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" FontSize="18" Height="42"/>
+
+        <Button Content="Add to Database" FontSize="16" Click="AddToDatabase_Click" Width="150" HorizontalAlignment="Left" Margin="698,131,0,618" Background="#FFE98980" FontWeight="Bold"/>
+        <Button Content="Show Softwere" FontSize="16" Click="ShowDatabase_Click" Width="150" HorizontalAlignment="Left" Margin="883,234,0,519" Background="#FFE98980" FontWeight="Bold" RenderTransformOrigin="0.547,0.271"/>
+        <Button Content="Update" FontSize="16" Click="UpdateDatabase_Click" Width="150" HorizontalAlignment="Left" Margin="698,234,0,516" Background="#FFE98980" FontWeight="Bold"/>
+        <Button Content="Delete Softwere" FontSize="16" Click="DeleteDatabase_Click" Width="150" HorizontalAlignment="Left" Margin="883,131,0,625" RenderTransformOrigin="0.489,0.899" Background="#FFE98980" FontWeight="Bold"/>
+        <Button  Content="Get System Info" FontSize="16" Click="GetInfo_Click" Width="150"  HorizontalAlignment="Left" Background="#FFE98980" FontWeight="Bold" Margin="698,346,0,412"/>
+        <Button  Content="Clear" FontSize="16" Click="GetClear_Click" Width="150"  HorizontalAlignment="Left" Margin="883,346,0,412" Background="#FFE98980" FontWeight="Bold"/>
+
+        <ListView  x:Name="dataListView" FontSize="18" Margin="78,556,87,35">
+            <ListView.Background>
+                <LinearGradientBrush EndPoint="0.5,1.5" StartPoint="0.1,1">
+                    <GradientStop Color="#FFBFB480" Offset="0.3"/>
+                    <GradientStop Color="#FF37BEB0" Offset="0.1"/>
+                    <GradientStop Color="#FFA4FDC2" Offset="1.5"/>
+                    <GradientStop Color="#FF81BBF1" Offset="0.2"/>
+                    <GradientStop Color="#FF72FFCF"/>
+                    <GradientStop Color="#FF405D77" Offset="10"/>
+                </LinearGradientBrush>
+            </ListView.Background>
+
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn Header="ID" Width="100"  DisplayMemberBinding="{Binding Column1}" />
+                    <GridViewColumn Header="OsName" Width="150" DisplayMemberBinding="{Binding Column2}" />
+                    <GridViewColumn Header="Version" Width="150" DisplayMemberBinding="{Binding Column3}" />
+                    <GridViewColumn Header="Manufactrer" Width="150" DisplayMemberBinding="{Binding Column4}" />
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>

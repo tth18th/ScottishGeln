@@ -18,7 +18,17 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <ListView  x:Name="AssetListView" FontSize="18" FontWeight="Bold" Margin="10,206,19,35" Background="#FFA4F3CD"  >
+        <ListView  x:Name="AssetListView" FontSize="18" FontWeight="Bold" Margin="10,206,19,35"   >
+            <ListView.Background>
+                <LinearGradientBrush EndPoint="0.5,1.5" StartPoint="0.1,1">
+                    <GradientStop Color="#FFBFB480" Offset="0.3"/>
+                    <GradientStop Color="#FF37BEB0" Offset="0.1"/>
+                    <GradientStop Color="#FFA4FDC2" Offset="1.5"/>
+                    <GradientStop Color="#FF81BBF1" Offset="0.2"/>
+                    <GradientStop Color="#FF72FFCF"/>
+                    <GradientStop Color="#FF405D77" Offset="10"/>
+                </LinearGradientBrush>
+            </ListView.Background>
             <ListView.View>
                 <GridView  >
                     <GridViewColumn Header="ID" Width="100" DisplayMemberBinding="{Binding Column1}" />
@@ -29,8 +39,8 @@
             </ListView.View>
 
         </ListView>
-        <Button Content="Show Assaigne Asset" HorizontalAlignment="Left" Margin="448,113,0,0" VerticalAlignment="Top" Height="45" Width="224" Click="Button_Click"/>
-        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="102" Click="Button_Click_1" Margin="10,10,0,0">
+        <Button Content="Show Assaigne Asset" HorizontalAlignment="Left" Margin="10,137,0,0" VerticalAlignment="Top" Height="45" Width="224" Click="Button_Click"/>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="94" Click="Button_Click_1" Margin="10,10,0,0">
             <Button.Background>
                 <ImageBrush ImageSource="/back.png"/>
             </Button.Background>

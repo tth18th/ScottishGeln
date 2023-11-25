@@ -66,6 +66,16 @@
             <ScrollViewer Margin="10,0,0,-168"  >
 
                 <ListView  x:Name="dataListView" FontSize="18" Height="367" Width="871" FontWeight="Bold" >
+                    <ListView.Background>
+                        <LinearGradientBrush EndPoint="0.5,1.5" StartPoint="0.1,1">
+                            <GradientStop Color="#FFBFB480" Offset="0.3"/>
+                            <GradientStop Color="#FF37BEB0" Offset="0.1"/>
+                            <GradientStop Color="#FFA4FDC2" Offset="1.5"/>
+                            <GradientStop Color="#FF81BBF1" Offset="0.2"/>
+                            <GradientStop Color="#FF72FFCF"/>
+                            <GradientStop Color="#FF405D77" Offset="10"/>
+                        </LinearGradientBrush>
+                    </ListView.Background>
                     <ListView.View>
                         <GridView  >
                             <GridViewColumn Header="ID" Width="80" DisplayMemberBinding="{Binding Column1}" />
@@ -79,7 +89,7 @@
             </ScrollViewer>
         </Grid>
         <Button Content="Assign Asset" HorizontalAlignment="Left" Margin="582,467,0,0" VerticalAlignment="Top" Height="48" Width="149" Click="AssignAsset_Click"/>
-        <Button HorizontalAlignment="Left" Margin="10,10,0,957" Width="55" Click="Button_Click">
+        <Button HorizontalAlignment="Left" Margin="814,20,0,927" Width="109" Click="Button_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/back.png"/>
             </Button.Background>

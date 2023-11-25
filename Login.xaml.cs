@@ -48,31 +48,57 @@ namespace ScottishGeln
                 }
             }
         }
+
+        public static class SessionManager
+        {
+            private static string currentUser;
+
+            public static string CurrentUser
+            {
+                get { return currentUser; }
+                private set { currentUser = value; }
+            }
+
+            public static bool IsUserLoggedIn
+            {
+                get { return !string.IsNullOrEmpty(CurrentUser); }
+            }
+
+            public static void LogIn(string username)
+            {
+                CurrentUser = username;
+            }
+
+            public static void LogOut()
+            {
+                CurrentUser = null;
+            }
+        }
+
+
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             string user = UserTextBox.Text;
             string password = PasswordBox.Password;
 
             AuthenticationManager authManager = new AuthenticationManager();
-            if (authManager.Authenticate(user, password))
-            {
-                // Authentication succeeded, continue with the initialization of the main window.
-                InitializeComponent();
+            
+               
                 // Your existing code for MainWindow initialization...
                 bool isLoginSuccessful = authManager.Authenticate(user, password);
-
-                // Set DialogResult based on the authentication result
-                DialogResult = isLoginSuccessful;
-                Close();
-            }
-            // Optionally, close the login window.
-
+                if (isLoginSuccessful)
+                {
+                    SessionManager.LogIn(user);
+                    DialogResult = true;
+                    Close();
+                }
+                          
             else
             {
 
                 MessageBox.Show("Invalid username or password.");
             }
-                    }
+          }
 
     }
 

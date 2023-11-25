@@ -5,8 +5,6 @@ using System.Net.Sockets;
 using System.Windows;
 using System.Windows.Controls;
 using MySql.Data.MySqlClient;
-using Microsoft.Win32;
-using Microsoft.VisualBasic;
 
 
 namespace ScottishGeln
@@ -114,9 +112,7 @@ namespace ScottishGeln
                         }
                     }
                 }
-            
-
-            dataListView.ItemsSource = data;
+                dataListView.ItemsSource = data;
         }
 
         private void GetInfo_Click(object sender, RoutedEventArgs e)

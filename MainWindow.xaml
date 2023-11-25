@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScottishGeln"
         mc:Ignorable="d"
-        Title="MainWindow" Height="850" Width="1020">
+        Title="MainWindow" Height="850" Width="1220">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1.5" StartPoint="0.1,1">
@@ -23,9 +23,10 @@
                 <ImageBrush Opacity="0.8"/>
             </Label.Background>
         </Label>
-        <Button Content="Add Assets" HorizontalAlignment="Left" Margin="153,452,0,0" VerticalAlignment="Top" FontSize="24" Click="Button_Click" Height="70" Width="188" Background="#FFE98980" Foreground="Black"/>
-        <Button Content="Employee" HorizontalAlignment="Left" Margin="433,452,0,0" VerticalAlignment="Top" FontSize="24" Click="Button_Click_1" Height="70" Width="168" Background="#FFE98980" Foreground="Black"/>
-        <Button Content="Assign Assets" HorizontalAlignment="Left" Margin="688,452,0,0" VerticalAlignment="Top" FontSize="24" Click="Button_Click_2" Height="70" Width="195" Background="#FFE98980" Foreground="Black"/>
+        <Button Content="Add Assets" HorizontalAlignment="Left" Margin="82,443,0,0" VerticalAlignment="Top" FontSize="24" Click="Add_Click" Height="70" Width="188" Background="#FFE98980" Foreground="Black"/>
+        <Button Content="Employee" HorizontalAlignment="Left" Margin="362,443,0,0" VerticalAlignment="Top" FontSize="24" Click="Employee_Click" Height="70" Width="168" Background="#FFE98980" Foreground="Black"/>
+        <Button Content="Softwere Assets" HorizontalAlignment="Left" Margin="622,443,0,0" VerticalAlignment="Top" FontSize="24" Click="Softwere_Click" Height="70" Width="195" Background="#FFE98980" Foreground="Black"/>
+        <Button Content="Assign Assets" HorizontalAlignment="Left" Margin="930,443,0,0" VerticalAlignment="Top" FontSize="24" Click="Assign_Click" Height="70" Width="195" Background="#FFE98980" Foreground="Black"/>
 
     </Grid>
 
