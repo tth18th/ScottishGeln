@@ -2,28 +2,29 @@
 using System.Windows;
 using System.Windows.Controls;
 using MySql.Data.MySqlClient;
+
+
 namespace ScottishGeln
+
 {
     /// <summary>
     /// Interaction logic for Login.xaml
     /// </summary>
     public partial class Login : Window
     {
-        public string Password { get; set; }
+
+       
 
         public Login()
         {
             InitializeComponent();
-
-        }
+                   }
 
         public class AuthenticationManager
         {
             public bool Authenticate(string user, string password)
             {
-                // Perform authentication logic here (check against database, etc.)
-                // Return true if authentication succeeds, false otherwise.
-                database db = new database();
+                                database db = new database();
 
                 try
                 {
@@ -48,6 +49,7 @@ namespace ScottishGeln
                 }
             }
         }
+
 
         public static class SessionManager
         {
@@ -75,31 +77,40 @@ namespace ScottishGeln
             }
         }
 
-
+        //this is login button 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             string user = UserTextBox.Text;
             string password = PasswordBox.Password;
-
+           
             AuthenticationManager authManager = new AuthenticationManager();
-            
-               
-                // Your existing code for MainWindow initialization...
-                bool isLoginSuccessful = authManager.Authenticate(user, password);
-                if (isLoginSuccessful)
-                {
-                    SessionManager.LogIn(user);
-                    DialogResult = true;
-                    Close();
-                }
-                          
+
+            bool isLoginSuccessful = authManager.Authenticate(user, password);
+            if (isLoginSuccessful)
+            {
+                SessionManager.LogIn(user);
+                // Save the user's session in application settings
+                Properties.Settings.Default.LoggedInUser = user;
+                Properties.Settings.Default.Save();
+
+                DialogResult = true;
+                Close();
+            }
+
             else
             {
 
                 MessageBox.Show("Invalid username or password.");
             }
-          }
+        }
 
+      
+        //this button when clicked shows password
+        private void PShow_Click(object sender, RoutedEventArgs e)
+        {
+           MessageBox.Show( PasswordBox.Password);
+            
+        }
     }
-
+        
     }

@@ -1,24 +1,33 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using static ScottishGeln.Login;
 
 namespace ScottishGeln
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    /// 
-
     public partial class MainWindow : Window
     {
-
+        
         public MainWindow()
         {
-            //windowlog();
+             
             InitializeComponent();
 
+            // Check if the user is authenticated during MainWindow initialization
+            if (!IsUserAuthenticated())
+            {
+                // If not authenticated, show the login window
+                Windowlog();
+            }
         }
-        
+        private bool IsUserAuthenticated()
+        {
+            // Check if the user is authenticated (e.g., by checking the session)
+            // Return true if authenticated, false otherwise
+            return Login.SessionManager.IsUserLoggedIn;
+        }
 
-        public void windowlog()
+             
+        public void Windowlog()
         {
             // Show the Login window as a dialog
             Login login = new Login();
@@ -44,7 +53,7 @@ namespace ScottishGeln
             da.Show();
             this.Close();
         }
-        // this button shoews assets window
+        // this button shows assets window
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
@@ -52,7 +61,7 @@ namespace ScottishGeln
             a.Show();
             this.Close();
         }
-        // this button shoews Employee
+        // this button shows Employee
         private void Employee_Click(object sender, RoutedEventArgs e)
         {
             Employee ea = new Employee();
@@ -60,7 +69,7 @@ namespace ScottishGeln
             this.Close();
 
         }
-
+        //this show softwere asset
         private void Softwere_Click(object sender, RoutedEventArgs e)
         {
             Softwere_Asset sa = new Softwere_Asset();

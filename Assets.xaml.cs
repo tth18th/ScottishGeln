@@ -38,7 +38,6 @@ namespace ScottishGeln
                     string Note = descriptionTextBox.Text;
                     Calendartxt.SelectedDate = DateTime.Now.AddDays(1);
 
-
                     string insertQuery = "INSERT INTO Assets (ID,Name,Model,Manufacture,Systeminfo,IpAddress,PDate,Department,Note) VALUES (FLOOR(10000 + RAND() * 90000),@Name, @Model, @Manufacture,@Systeminfo,@IpAddress,@PDate,@Department,@Note)";
                     using (MySqlCommand cmd = new MySqlCommand(insertQuery, db.GetConnection()))
                     {
@@ -63,13 +62,10 @@ namespace ScottishGeln
                     MessageBox.Show("Error: " + ex.Message);
                 }
                 
-            
-
         }
         // getter and setter for the column where show assets info 
         public class DataItem
         {
-
             public string Column1 { get; set; }
             public string Column2 { get; set; }
             public string Column3 { get; set; }
@@ -85,7 +81,6 @@ namespace ScottishGeln
         private void ShowDatabase_Click(object sender, RoutedEventArgs e)
         {
             List<DataItem> data = new List<DataItem>();
-
 
            database d = new database();
                 
@@ -137,7 +132,6 @@ namespace ScottishGeln
         }
       
 
-
         // get loclal device Ip address
         private string GetLocalIPAddress()
         {
@@ -159,12 +153,13 @@ namespace ScottishGeln
             return localIP;
         }
 
-
-
+        
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        {   
+            // Check if an item is selected
             if (dataListView.SelectedItem != null)
             {
+                // Populate text boxes and combo box with the properties of the selected DataItem
                 DataItem selectedData = (DataItem)dataListView.SelectedItem;
                 IDTextBox.Text = selectedData.Column1;
                 nameTextBox.Text = selectedData.Column2;
@@ -181,11 +176,9 @@ namespace ScottishGeln
 
 
         private void UpdateDatabase_Click(object sender, RoutedEventArgs e)
-        {
-            
+        {            
             try
-            {
-                               
+            {                               
                 Update db = new Update();
                 Asset au = new Asset(IDTextBox.Text,
             nameTextBox.Text,

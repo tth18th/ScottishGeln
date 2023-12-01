@@ -30,7 +30,6 @@ namespace ScottishGeln
         }
         public class DataItem
         {
-
             public string Column1 { get; set; }
             public string Column2 { get; set; }
             public string Column3 { get; set; }
@@ -39,6 +38,7 @@ namespace ScottishGeln
 
         }
 
+        //shows all data from database
         private void Show_Click(object sender, RoutedEventArgs e)
         {
             List<DataItem> data = new List<DataItem>();
@@ -88,10 +88,7 @@ namespace ScottishGeln
             database d = new database();
 
             try
-            {
-
-                // d.GetConnection().Open();
-
+            {                
                 string id = idTextbox.Text;
                 string fname = fnTextbox.Text;
                 string lname = LnTextbox.Text;
@@ -106,7 +103,6 @@ namespace ScottishGeln
                     cmd.Parameters.AddWithValue("@lname", lname);
                     cmd.Parameters.AddWithValue("@email", email);
                     cmd.Parameters.AddWithValue("@dep", dep);
-
 
                     int rowsAffected = cmd.ExecuteNonQuery();
                     if (rowsAffected > 0)
@@ -124,7 +120,7 @@ namespace ScottishGeln
         }
 
 
-
+        //make changes to database
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -148,6 +144,7 @@ namespace ScottishGeln
 
         }
 
+        //delete from database
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             database d = new database();
@@ -176,7 +173,7 @@ namespace ScottishGeln
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-
+        //clear all boxes
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             fnTextbox.Text = string.Empty;

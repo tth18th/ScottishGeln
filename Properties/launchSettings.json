@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "ScottishGeln": {
+      "commandName": "Project",
+      "sqlDebugging": true,
+      "nativeDebugging": true
+    }
+  }
+}

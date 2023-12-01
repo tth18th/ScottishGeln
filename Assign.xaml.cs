@@ -23,12 +23,8 @@ namespace ScottishGeln
         public Department()
         {
             InitializeComponent();
-            
-
         }
-        public class DataItem
-        {
-
+        public class DataItem { 
             public string Column1 { get; set; }
             public string Column2 { get; set; }
             public string Column3 { get; set; }
@@ -60,9 +56,7 @@ namespace ScottishGeln
                     }
                 }
             }
-
-
-              AssetListView.ItemsSource = data;
+                          AssetListView.ItemsSource = data;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
