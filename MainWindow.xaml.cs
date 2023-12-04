@@ -16,7 +16,7 @@ namespace ScottishGeln
             if (!IsUserAuthenticated())
             {
                 // If not authenticated, show the login window
-                Windowlog();
+                //Windowlog();
             }
         }
         private bool IsUserAuthenticated()
