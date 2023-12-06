@@ -33,16 +33,17 @@
                 <GridView  >
                     <GridViewColumn Header="ID" Width="100" DisplayMemberBinding="{Binding Column1}" />
                     <GridViewColumn Header="Asset Name" Width="230" DisplayMemberBinding="{Binding Column2}" />
-                    <GridViewColumn Header="Employee Name" Width="230" DisplayMemberBinding="{Binding Column3}" />
-
+                    <GridViewColumn Header="Softwere Name" Width="230" DisplayMemberBinding="{Binding Column3}" />
+                    <GridViewColumn Header="Employee Name" Width="230" DisplayMemberBinding="{Binding Column4}" />
+                    <GridViewColumn Header="Department" Width="230" DisplayMemberBinding="{Binding Column5}" />
                 </GridView>
             </ListView.View>
 
         </ListView>
-        <Button Content="Show Assaigne Asset" HorizontalAlignment="Left" Margin="10,137,0,0" VerticalAlignment="Top" Height="45" Width="224" Click="Button_Click"/>
+        <Button Content="Show Assaigne Asset" HorizontalAlignment="Left" Margin="10,137,0,0" VerticalAlignment="Top" Height="45" Width="224" Click="Button_Click"  FontSize="16" Background="#FFE98980" FontWeight="Bold"/>
         <Button HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="94" Click="Button_Click_1" Margin="10,10,0,0">
             <Button.Background>
-                <ImageBrush ImageSource="/back.png"/>
+                <ImageBrush ImageSource="/Images/back 1.png"/>
             </Button.Background>
         </Button>
 

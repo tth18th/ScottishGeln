@@ -19,34 +19,34 @@
         </Grid.Background>
 
 
-        <Button HorizontalAlignment="Left" Margin="10,10,0,751" Width="135" Click="Button_Click">
+        <Button HorizontalAlignment="Left" Margin="10,10,0,734" Width="135" Click="Button_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/back.png"/>
+                <ImageBrush ImageSource="/Images/back 1.png"/>
             </Button.Background>
         </Button>
         <Label Content="Os Name" HorizontalAlignment="Left" Margin="78,218,0,0" VerticalAlignment="Top" Height="42" Width="96" FontSize="18" FontWeight="Bold"/>
-        <TextBox x:Name="osTextBox" HorizontalAlignment="Left" Margin="78,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" FontSize="18" Height="42"/>
+        <TextBox x:Name="osTextBox" HorizontalAlignment="Left" Margin="78,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="523" FontSize="18" Height="42"/>
         <Label Content="Id" HorizontalAlignment="Left" Margin="78,117,0,0" VerticalAlignment="Top" Height="42" Width="96" FontSize="18" FontWeight="Bold"/>
-        <TextBox x:Name="IdTextBox" HorizontalAlignment="Left" Margin="78,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" FontSize="18" Height="42"/>
+        <TextBox x:Name="IdTextBox" HorizontalAlignment="Left" Margin="78,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="523" FontSize="18" Height="42"/>
         <Label Content="Version" HorizontalAlignment="Left" Margin="78,312,0,0" VerticalAlignment="Top" Height="42" Width="96" FontSize="18" FontWeight="Bold"/>
-        <TextBox x:Name="versionTextBox" HorizontalAlignment="Left" Margin="78,354,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" FontSize="18" Height="42"/>
+        <TextBox x:Name="versionTextBox" HorizontalAlignment="Left" Margin="78,354,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="523" FontSize="18" Height="42"/>
         <Label Content="Manufacturer" HorizontalAlignment="Left" Margin="78,401,0,0" VerticalAlignment="Top" Height="42" Width="150" FontSize="18" FontWeight="Bold"/>
-        <TextBox x:Name="manTextBox" HorizontalAlignment="Left" Margin="78,444,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" FontSize="18" Height="42"/>
+        <TextBox x:Name="manTextBox" HorizontalAlignment="Left" Margin="78,444,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="523" FontSize="18" Height="42"/>
 
-        <Button Content="Add to Database" FontSize="16" Click="AddToDatabase_Click" Width="150" HorizontalAlignment="Left" Margin="698,131,0,618" Background="#FFE98980" FontWeight="Bold"/>
-        <Button Content="Show Softwere" FontSize="16" Click="ShowDatabase_Click" Width="150" HorizontalAlignment="Left" Margin="883,234,0,519" Background="#FFE98980" FontWeight="Bold" RenderTransformOrigin="0.547,0.271"/>
-        <Button Content="Update" FontSize="16" Click="UpdateDatabase_Click" Width="150" HorizontalAlignment="Left" Margin="698,234,0,516" Background="#FFE98980" FontWeight="Bold"/>
-        <Button Content="Delete Softwere" FontSize="16" Click="DeleteDatabase_Click" Width="150" HorizontalAlignment="Left" Margin="883,131,0,625" RenderTransformOrigin="0.489,0.899" Background="#FFE98980" FontWeight="Bold"/>
-        <Button  Content="Get System Info" FontSize="16" Click="GetInfo_Click" Width="150"  HorizontalAlignment="Left" Background="#FFE98980" FontWeight="Bold" Margin="698,346,0,412"/>
-        <Button  Content="Clear" FontSize="16" Click="GetClear_Click" Width="150"  HorizontalAlignment="Left" Margin="883,346,0,412" Background="#FFE98980" FontWeight="Bold"/>
+        <Button Content="Add to Database" FontSize="16" Click="AddToDatabase_Click" Width="150" HorizontalAlignment="Left" Margin="672,174,0,575" Background="#FFE98980" FontWeight="Bold"/>
+        <Button Content="Show Softwere" FontSize="16" Click="ShowDatabase_Click" Width="150" HorizontalAlignment="Left" Margin="857,277,0,476" Background="#FFE98980" FontWeight="Bold" RenderTransformOrigin="0.547,0.271"/>
+        <Button Content="Update" FontSize="16" Click="UpdateDatabase_Click" Width="150" HorizontalAlignment="Left" Margin="672,277,0,473" Background="#FFE98980" FontWeight="Bold"/>
+        <Button Content="Delete Softwere" FontSize="16" Click="DeleteDatabase_Click" Width="150" HorizontalAlignment="Left" Margin="857,174,0,582" RenderTransformOrigin="0.489,0.899" Background="#FFE98980" FontWeight="Bold"/>
+        <Button  Content="Get System Info" FontSize="16" Click="GetInfo_Click" Width="150"  HorizontalAlignment="Left" Background="#FFE98980" FontWeight="Bold" Margin="672,389,0,369"/>
+        <Button  Content="Clear" FontSize="16" Click="GetClear_Click" Width="150"  HorizontalAlignment="Left" Margin="857,389,0,369" Background="#FFE98980" FontWeight="Bold"/>
 
         <ListView  x:Name="dataListView" FontSize="18" Margin="78,556,87,35">
             <ListView.Background>
                 <LinearGradientBrush EndPoint="0.5,1.5" StartPoint="0.1,1">
-                    <GradientStop Color="#FFBFB480" Offset="0.3"/>
-                    <GradientStop Color="#FF37BEB0" Offset="0.1"/>
+                    <GradientStop Color="#FFF7F6EF" Offset="0.654"/>
+                    <GradientStop Color="#FF75D4CA" Offset="0.196"/>
                     <GradientStop Color="#FFA4FDC2" Offset="1.5"/>
-                    <GradientStop Color="#FF81BBF1" Offset="0.2"/>
+                    <GradientStop Color="#FFB1C4D6" Offset="0.382"/>
                     <GradientStop Color="#FF72FFCF"/>
                     <GradientStop Color="#FF405D77" Offset="10"/>
                 </LinearGradientBrush>

@@ -29,7 +29,8 @@ namespace ScottishGeln
             public string Column2 { get; set; }
             public string Column3 { get; set; }
             public string Column4 { get; set; }
-            
+            public string Column5 { get; set; }
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -37,7 +38,7 @@ namespace ScottishGeln
             List<DataItem> data = new List<DataItem>();
             database d = new database();
 
-            string query = "SELECT id, Asset_name, Employees_name, department FROM Assaigne_asset";
+            string query = "SELECT * FROM Assaigne_asset";
             using (MySqlCommand cmd = new MySqlCommand(query, d.GetConnection()))
             {
                 using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -48,8 +49,9 @@ namespace ScottishGeln
                         {
                             Column1 = reader["id"].ToString(),
                             Column2 = reader["Asset_name"].ToString(),
-                            Column3 = reader["Employees_name"].ToString(),
-                            Column4 = reader["department"].ToString(),
+                            Column3 = reader["Softwere_name"].ToString(),
+                            Column4 = reader["Employees_name"].ToString(),
+                            Column5 = reader["department"].ToString(),
 
                         };
                         data.Add(item);

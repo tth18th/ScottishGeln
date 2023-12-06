@@ -27,6 +27,7 @@ namespace ScottishGeln
             InitializeComponent();
             dataListView.SelectionChanged += ListView_SelectionChanged;
             LoadAssets();
+            LoadSoft();
         }
         public class DataItem
         {
@@ -79,7 +80,7 @@ namespace ScottishGeln
                 fnTextbox.Text = selectedData.Column2;
                 LnTextbox.Text = selectedData.Column3;
                 emTextbox.Text = selectedData.Column4;
-                depComtbox.Text = selectedData.Column5;
+                depCombox.Text = selectedData.Column5;
 
             }
         }
@@ -93,7 +94,7 @@ namespace ScottishGeln
                 string fname = fnTextbox.Text;
                 string lname = LnTextbox.Text;
                 string email = emTextbox.Text;
-                string dep = (depComtbox.SelectedItem as ComboBoxItem)?.Content.ToString(); 
+                string dep = (depCombox.SelectedItem as ComboBoxItem)?.Content.ToString(); 
 
                 string insertq = "INSERT INTO staff (id,firstname,lastname,email,department) values(FLOOR(10000 + RAND() * 90000),@fname,@lname,@email,@dep)";
                 using (MySqlCommand cmd = new MySqlCommand(insertq, d.GetConnection()))
@@ -131,7 +132,7 @@ namespace ScottishGeln
                  fnTextbox.Text,
                  LnTextbox.Text,
                  emTextbox.Text,
-                 depComtbox.Text
+                 depCombox.Text
                  );
                 emp.updateEmployee(st);
 
@@ -180,7 +181,7 @@ namespace ScottishGeln
             LnTextbox.Text = string.Empty;
             emTextbox.Text = string.Empty;
             idTextbox.Text = string.Empty;
-            depComtbox.Text = string.Empty;
+            depCombox.Text = string.Empty;
 
         }
 
@@ -193,7 +194,7 @@ namespace ScottishGeln
             // Populate the ComboBox with assets
             assetComboBox.ItemsSource = assets;
         }
-
+        // this is for assets
         private List<string> GetAssetsFromDatabase()
         {
             List<string> assets = new List<string>();
@@ -222,27 +223,85 @@ namespace ScottishGeln
             return assets;
         }
 
-      
+        //this is for softwere
+        private List<string> GetAssetsFromDatabaseSoft()
+        {
+            List<string> soft = new List<string>();
+
+            database d = new database();
+            try
+            {
+                string query = "SELECT Name FROM SoftwareAssets"; // Adjust the table and column names accordingly
+                using (MySqlCommand cmd = new MySqlCommand(query, d.GetConnection()))
+                {
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string assetName = reader["Name"].ToString(); // Adjust the column name accordingly
+                            soft.Add(assetName);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+            return soft;
+        }
+        private void LoadSoft()
+        {
+            List <string> soft = GetAssetsFromDatabaseSoft();
+            SoftComboBox.ItemsSource = soft;
+        }
 
         private void AssignAsset_Click(object sender, RoutedEventArgs e)
         {
             
                 string selectedAsset = assetComboBox.SelectedItem as string;
+                string selectedSoft= SoftComboBox.SelectedItem as string;
                 string selectedEmployee = $"{fnTextbox.Text} {LnTextbox.Text}";
-              
-                if (selectedAsset != null && !string.IsNullOrEmpty(selectedEmployee) )
-                {
-                    // Call a method to perform the assignment and update the database
-                    AssignAssetToEmployee(selectedAsset, selectedEmployee);
+                string department = depCombox.Text;
 
-                    // Show a message or perform any other actions if needed
-                    MessageBox.Show($"Asset '{selectedAsset}' assigned to employee '{selectedEmployee}'");
-                }
-                else
-                {
-                    MessageBox.Show("Please select an asset and ensure employee information is complete.");
-                }
             
+            if (selectedAsset != null && selectedSoft != null && selectedEmployee != null && department != null)
+            {
+                // Call a method to perform the assignment and update the database
+                AssignAssetToEmployee(selectedAsset, selectedSoft, selectedEmployee, department);
+
+                // Show a message or perform any other actions if needed
+                MessageBox.Show($"Asset '{selectedAsset}' and Software '{selectedSoft}' assigned to employee '{selectedEmployee}' in department '{department}'");
+            }
+            else
+            {
+                string errorMessage = "Please correct the following issues:\n";
+
+                if (selectedAsset == null)
+                {
+                    errorMessage += "- Select an asset\n";
+                }
+
+                if (selectedSoft == null)
+                {
+                    errorMessage += "- Select software\n";
+                }
+
+                if (selectedEmployee == null)
+                {
+                    errorMessage += "- Enter employee information\n";
+                }
+
+                if (department == null)
+                {
+                    errorMessage += "- Select a department\n";
+                }
+
+                MessageBox.Show(errorMessage);
+              //  MessageBox.Show("Please select an asset, ensure employee information is complete, and select a department.");
+            }
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -254,18 +313,21 @@ namespace ScottishGeln
         }
 
 
-        private void AssignAssetToEmployee(string assetName, string employeeName)
+        private void AssignAssetToEmployee(string assetName,string softName, string employeeName, string department)
         {
 
             database d = new database();
             try
             {
-                string insertQuery = "INSERT INTO Assaigne_asset (id, Asset_name, Employees_name) VALUES (FLOOR(10000 + RAND() * 90000),@AssetName, @EmployeeName)";
+                string insertQuery = "INSERT INTO Assaigne_asset (id, Asset_name, Softwere_name, Employees_name,department ) VALUES (FLOOR(10000 + RAND() * 90000),@AssetName, @SoftName, @EmployeeName, @department)";
                 using (MySqlCommand cmd = new MySqlCommand(insertQuery, d.GetConnection()))
                 {
                     cmd.Parameters.AddWithValue("@AssetName", assetName);
+                    cmd.Parameters.AddWithValue("@SoftName", softName);
                     cmd.Parameters.AddWithValue("@EmployeeName", employeeName);
-                  
+                    cmd.Parameters.AddWithValue("@department", department);
+
+
 
                     int rowsAffected = cmd.ExecuteNonQuery();
                     if (rowsAffected > 0)
