@@ -106,7 +106,7 @@ namespace ScottishGeln
         //this button when clicked shows password
         private void PShow_Click(object sender, RoutedEventArgs e)
         {
-           MessageBox.Show( "Your Password:  ", PasswordBox.Password);
+           MessageBox.Show( "Your Password:  " + PasswordBox.Password);
             
         }
     }
