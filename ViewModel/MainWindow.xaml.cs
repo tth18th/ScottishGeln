@@ -15,13 +15,13 @@ namespace ScottishGeln
             // Check if the user is authenticated during MainWindow initialization
             if (!IsUserAuthenticated())
             {
-                // If not authenticated, show the login window
-                //Windowlog();
+                // show the login window
+                Windowlog();
             }
         }
         private bool IsUserAuthenticated()
         {
-            // Check if the user is authenticated (e.g., by checking the session)
+            
             // Return true if authenticated, false otherwise
             return Login.SessionManager.IsUserLoggedIn;
         }

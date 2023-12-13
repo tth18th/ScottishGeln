@@ -12,6 +12,7 @@ namespace ScottishGeln
 {
     class updateEmp
     {
+        //update Employee in database
         public void updateEmployee(Staff staff)
         {
 
@@ -53,8 +54,8 @@ namespace ScottishGeln
 
     }
 
-
-        public class Staff
+    // representing the attributes of a Employee member
+    public class Staff
         {
 
             public string Id { get; set; }

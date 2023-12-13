@@ -12,11 +12,7 @@ namespace ScottishGeln
     {
         private string connectionString = "server=lochnagar.abertay.ac.uk;username=sql2100258;password=reduces dump risk baths;database=sql2100258;";
 
-        //public void DatabaseManager(string connectionString)
-        //{
-        //    this.connectionString = connectionString;
-        //}
-
+       
         public MySqlConnection GetConnection()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);

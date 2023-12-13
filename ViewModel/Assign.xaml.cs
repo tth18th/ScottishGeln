@@ -32,13 +32,13 @@ namespace ScottishGeln
             public string Column5 { get; set; }
 
         }
-
+        //show all Assigned asset
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             List<DataItem> data = new List<DataItem>();
             database d = new database();
 
-            string query = "SELECT * FROM Assaigne_asset";
+            string query = "SELECT * FROM Assigned_asset";
             using (MySqlCommand cmd = new MySqlCommand(query, d.GetConnection()))
             {
                 using (MySqlDataReader reader = cmd.ExecuteReader())

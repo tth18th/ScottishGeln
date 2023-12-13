@@ -9,9 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace ScottishGeln
 {
-    /// <summary>
-    /// Interaction logic for Assets.xaml
-    /// </summary>
+    
     public partial class Assets : Window
     {
         public Assets()
@@ -26,8 +24,7 @@ namespace ScottishGeln
            database db = new database();
             
                 try
-                {
-                 
+                {                 
                     string name = nameTextBox.Text;
                     string Model = ModelTextBox.Text;
                     string Manufacture = ManTextBox.Text;
@@ -109,10 +106,9 @@ namespace ScottishGeln
                 }
                 dataListView.ItemsSource = data;
         }
-
+        // Get system information
         private void GetInfo_Click(object sender, RoutedEventArgs e)
-        {
-            // Get system information
+        {             
             string systemName = Environment.MachineName;
             string systemModel = "Windows\t " + Environment.OSVersion.Version.ToString();
             string systemManufacturer = $"{systemName}";
@@ -126,12 +122,7 @@ namespace ScottishGeln
             SysTextBox.Text = systemType;
             IpTextBox.Text = ipAddress;
         }
-        private string GetSystemModel()
-        {
-            return Environment.GetEnvironmentVariable("COMPUTERNAME");
-        }
-      
-
+        
         // get loclal device Ip address
         private string GetLocalIPAddress()
         {
@@ -152,8 +143,7 @@ namespace ScottishGeln
             }
             return localIP;
         }
-
-        
+                
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {   
             // Check if an item is selected
@@ -173,8 +163,7 @@ namespace ScottishGeln
 
             }
         }
-
-
+        //update in database
         private void UpdateDatabase_Click(object sender, RoutedEventArgs e)
         {            
             try
@@ -201,7 +190,7 @@ namespace ScottishGeln
             }
         }
      
-
+        //delete from database
         private void DeleteDatabase_Click(object sender, RoutedEventArgs e)
         {
             database d = new database();
@@ -232,7 +221,7 @@ namespace ScottishGeln
              
             
         }
-
+        //clear textboxes 
         private void GetClear_Click(object sender, RoutedEventArgs e)
         {
             IDTextBox.Text = string.Empty;
@@ -245,6 +234,7 @@ namespace ScottishGeln
             descriptionTextBox.Text = string.Empty; 
         }
 
+        //will take back to home page
         private void Button_Click(object sender, RoutedEventArgs e)
         {
            MainWindow m = new MainWindow();

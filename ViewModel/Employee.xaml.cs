@@ -29,6 +29,7 @@ namespace ScottishGeln
             LoadAssets();
             LoadSoft();
         }
+        //Each property corresponds to a column (Column1 to Column5) and seems to hold string values
         public class DataItem
         {
             public string Column1 { get; set; }
@@ -64,9 +65,7 @@ namespace ScottishGeln
                             data.Add(item);
                         }
                     }
-                }
-            
-
+                }       
             dataListView.ItemsSource = data;
         }
 
@@ -84,6 +83,7 @@ namespace ScottishGeln
 
             }
         }
+        //add to databese
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             database d = new database();
@@ -110,8 +110,6 @@ namespace ScottishGeln
                     {
                         MessageBox.Show("Data added to the database.");
                     }
-
-
                 }
             }
             catch (Exception ex)
@@ -202,14 +200,14 @@ namespace ScottishGeln
             database d = new database();
             try
             {           
-                    string query = "SELECT Name FROM Assets"; // Adjust the table and column names accordingly
+                    string query = "SELECT Name FROM Assets"; 
                     using (MySqlCommand cmd = new MySqlCommand(query, d.GetConnection()))
                     {
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                string assetName = reader["Name"].ToString(); // Adjust the column name accordingly
+                                string assetName = reader["Name"].ToString(); 
                                 assets.Add(assetName);
                             }
                         }
@@ -223,7 +221,7 @@ namespace ScottishGeln
             return assets;
         }
 
-        //this is for softwere
+        //this is for software
         private List<string> GetAssetsFromDatabaseSoft()
         {
             List<string> soft = new List<string>();
@@ -231,14 +229,14 @@ namespace ScottishGeln
             database d = new database();
             try
             {
-                string query = "SELECT Name FROM SoftwareAssets"; // Adjust the table and column names accordingly
+                string query = "SELECT Name FROM SoftwareAssets"; 
                 using (MySqlCommand cmd = new MySqlCommand(query, d.GetConnection()))
                 {
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            string assetName = reader["Name"].ToString(); // Adjust the column name accordingly
+                            string assetName = reader["Name"].ToString(); 
                             soft.Add(assetName);
                         }
                     }
@@ -303,6 +301,7 @@ namespace ScottishGeln
             }
 
         }
+        //take back to home window
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -312,7 +311,7 @@ namespace ScottishGeln
 
         }
 
-
+        //Asset assigned store in database
         private void AssignAssetToEmployee(string assetName,string softName, string employeeName, string department)
         {
 

@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Windows;
 using System.Windows.Controls;
 using MySql.Data.MySqlClient;
@@ -13,18 +13,16 @@ namespace ScottishGeln
     public partial class Login : Window
     {
 
-       
-
         public Login()
         {
             InitializeComponent();
-                   }
-
+         }
+        //Authenticate user
         public class AuthenticationManager
         {
             public bool Authenticate(string user, string password)
             {
-                                database db = new database();
+                 database db = new database();
 
                 try
                 {
@@ -50,7 +48,7 @@ namespace ScottishGeln
             }
         }
 
-
+        //set session apter login
         public static class SessionManager
         {
             private static string currentUser;
@@ -108,7 +106,7 @@ namespace ScottishGeln
         //this button when clicked shows password
         private void PShow_Click(object sender, RoutedEventArgs e)
         {
-           MessageBox.Show( PasswordBox.Password);
+           MessageBox.Show( "Your Password:  ", PasswordBox.Password);
             
         }
     }
